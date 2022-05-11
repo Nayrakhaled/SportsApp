@@ -81,12 +81,10 @@
 		B7425E2D282C357B00B6B0BF /* SportsApp */ = {
 			isa = PBXGroup;
 			children = (
+				B7425E53282C35EE00B6B0BF /* View */,
 				B7425E2E282C357B00B6B0BF /* AppDelegate.swift */,
 				B7425E30282C357B00B6B0BF /* SceneDelegate.swift */,
 				B7425E32282C357B00B6B0BF /* ViewController.swift */,
-				B7425E34282C357C00B6B0BF /* Main.storyboard */,
-				B7425E3A282C359800B6B0BF /* Assets.xcassets */,
-				B7425E3C282C359800B6B0BF /* LaunchScreen.storyboard */,
 				B7425E3F282C359800B6B0BF /* Info.plist */,
 				B7425E37282C357C00B6B0BF /* SportsApp.xcdatamodeld */,
 			);
@@ -100,6 +98,16 @@
 				B7425E4A282C359A00B6B0BF /* Info.plist */,
 			);
 			path = SportsAppTests;
+			sourceTree = "<group>";
+		};
+		B7425E53282C35EE00B6B0BF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B7425E3C282C359800B6B0BF /* LaunchScreen.storyboard */,
+				B7425E3A282C359800B6B0BF /* Assets.xcassets */,
+				B7425E34282C357C00B6B0BF /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

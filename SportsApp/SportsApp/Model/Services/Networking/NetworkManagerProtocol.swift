@@ -9,5 +9,7 @@
 import Foundation
 
 protocol NetworkManagerProtocol {
-    func getHome(url: String, complitionHandler: @escaping ([Sport]?,Error?)->Void)
+    func getAllSports(url: String, complitionHandler: @escaping ([Sport]?,Error?)->Void)
+    
+    func getAllLeagues(url: String, complitionHandler: @escaping ([League]?,Error?)->Void)
 }

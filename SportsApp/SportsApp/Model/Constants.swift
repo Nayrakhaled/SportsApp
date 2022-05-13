@@ -12,5 +12,5 @@ class Constants{
     
     static let BASE_URL = "https://www.thesportsdb.com/api/v1/json/2/"
     static let ALLSPORTS = "all_sports.php"
-    
+    static let ALLLEAGUES = "search_all_leagues.php?s="
 }

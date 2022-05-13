@@ -7,15 +7,40 @@
 //
 
 import UIKit
+import Kingfisher
 
-class ViewController: UIViewController{
+
+protocol HomeProtocol : AnyObject{
+    func stopAnimating()
+    func renderCollectionView()
+}
+
+class ViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     
-   
+    let indicator = UIActivityIndicatorView(style: .large)
+    var presenter : HomePresenter!
+    var sport = [Sport]()
+    let layout = UICollectionViewFlowLayout()
 
+    @IBOutlet weak var homeCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right:0)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 4)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        self.homeCollectionView.collectionViewLayout = layout
        
+        
+        self.homeCollectionView.delegate = self
+        self.homeCollectionView.dataSource = self
+        
+        presenter = HomePresenter(NWService: NetworkManager())
+        presenter.attachView(view: self)
+              
+        presenter.getHomeSports(url: Constants.BASE_URL + Constants.ALLSPORTS)
     }
 
 
@@ -25,14 +50,40 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         return 3
+        return sport.count
      }
-     
+    
+       
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellHome", for: indexPath) as! HomeCollectionViewCell
         
+        cell.layer.shadowOpacity = 0.3
+        cell.layer.shadowOffset = CGSize(width: 3, height: 3)
         
+        cell.setImageHome(url: sport[indexPath.row].strSportThumb!)
+        cell.setSportName(name: sport[indexPath.row].strSport!)
          return cell
      }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let LeagueVC = storyboard?.instantiateViewController(withIdentifier: "league") as! LeagueTableViewController
+               
+        LeagueVC.sportName = sport[indexPath.row].strSport
+        navigationController?.pushViewController(LeagueVC, animated: true)
+    }
+}
+extension ViewController : HomeProtocol {
+    func renderCollectionView() {
+        sport = presenter.sport.map({ (item) -> [Sport] in
+                   return item
+        })!
+        self.homeCollectionView.reloadData()
+    }
+    
+    func stopAnimating() {
+        indicator.stopAnimating()
+        
+    }
     
 }

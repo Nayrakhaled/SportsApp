@@ -10,15 +10,16 @@ import Foundation
 
 protocol HomePresenterProtocol{
     func getHomeSports(url: String)
+    func attachView(view: HomeProtocol)
 }
 
-class HomePresenter {
+class HomePresenter: HomePresenterProtocol {
     
     var NWService : NetworkManagerProtocol! // service
     var sport : [Sport]! // model
     weak var view : HomeProtocol!  // DI
     
-    init(NWService : NetworkManager){
+    init(NWService : NetworkManagerProtocol){
         self.NWService = NWService
     }
     
@@ -34,7 +35,7 @@ class HomePresenter {
                        
             DispatchQueue.main.async {
             self?.view.stopAnimating()
-            self?.view.renderCollectionView()
+                self?.view.renderCollectionView(sport: self!.sport)
                           
             }
         })

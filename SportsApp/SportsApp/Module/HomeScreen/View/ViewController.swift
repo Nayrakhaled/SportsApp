@@ -12,13 +12,13 @@ import Kingfisher
 
 protocol HomeProtocol : AnyObject{
     func stopAnimating()
-    func renderCollectionView()
+    func renderCollectionView(sport: [Sport])
 }
 
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     
     let indicator = UIActivityIndicatorView(style: .large)
-    var presenter : HomePresenter!
+    var presenter : HomePresenterProtocol!
     var sport = [Sport]()
     let layout = UICollectionViewFlowLayout()
 
@@ -38,6 +38,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         self.homeCollectionView.dataSource = self
         
         presenter = HomePresenter(NWService: NetworkManager())
+        
         presenter.attachView(view: self)
               
         presenter.getHomeSports(url: Constants.BASE_URL + Constants.ALLSPORTS)
@@ -67,17 +68,18 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let LeagueVC = storyboard?.instantiateViewController(withIdentifier: "league") as! LeagueTableViewController
+        let LeagueVC = storyboard?.instantiateViewController(withIdentifier: "league") as! LeaguesViewController
                
         LeagueVC.sportName = sport[indexPath.row].strSport
-        navigationController?.pushViewController(LeagueVC, animated: true)
+//        navigationController?.pushViewController(LeagueVC, animated: true)
+        LeagueVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        
+        present(LeagueVC, animated: true, completion:nil)
     }
 }
 extension ViewController : HomeProtocol {
-    func renderCollectionView() {
-        sport = presenter.sport.map({ (item) -> [Sport] in
-                   return item
-        })!
+    func renderCollectionView(sport: [Sport]) {
+        self.sport = sport
         self.homeCollectionView.reloadData()
     }
     

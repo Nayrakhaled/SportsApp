@@ -12,4 +12,6 @@ protocol NetworkManagerProtocol {
     func getAllSports(url: String, complitionHandler: @escaping ([Sport]?,Error?)->Void)
     
     func getAllLeagues(url: String, complitionHandler: @escaping ([League]?,Error?)->Void)
+    
+    
 }

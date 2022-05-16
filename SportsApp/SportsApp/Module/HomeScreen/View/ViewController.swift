@@ -17,7 +17,7 @@ protocol HomeProtocol : AnyObject{
 
 class ViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     
-    let indicator = UIActivityIndicatorView(style: .large)
+    let indecator = UIActivityIndicatorView(style: .large)
     var presenter : HomePresenterProtocol!
     var sport = [Sport]()
     let layout = UICollectionViewFlowLayout()
@@ -33,6 +33,8 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         layout.minimumLineSpacing = 0
         self.homeCollectionView.collectionViewLayout = layout
        
+        indecator.center = self.view.center
+        self.view.addSubview(indecator)
         
         self.homeCollectionView.delegate = self
         self.homeCollectionView.dataSource = self
@@ -40,8 +42,9 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         presenter = HomePresenter(NWService: NetworkManager())
         
         presenter.attachView(view: self)
-              
-        presenter.getHomeSports(url: Constants.BASE_URL + Constants.ALLSPORTS)
+            
+        indecator.startAnimating()
+        presenter.getHomeSports(url:  Constants.ALLSPORTS)
     }
 
 
@@ -71,10 +74,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let LeagueVC = storyboard?.instantiateViewController(withIdentifier: "league") as! LeaguesViewController
                
         LeagueVC.sportName = sport[indexPath.row].strSport
-//        navigationController?.pushViewController(LeagueVC, animated: true)
-        LeagueVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-        
-        present(LeagueVC, animated: true, completion:nil)
+    navigationController?.pushViewController(LeagueVC, animated: true)
+//        LeagueVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+//
+//        present(LeagueVC, animated: true, completion:nil)
     }
 }
 extension ViewController : HomeProtocol {
@@ -84,8 +87,7 @@ extension ViewController : HomeProtocol {
     }
     
     func stopAnimating() {
-        indicator.stopAnimating()
-        
+        indecator.stopAnimating()
     }
     
 }

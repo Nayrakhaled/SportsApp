@@ -19,6 +19,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
         sportNameLabel.text = name
     }
     func setImageHome(url: String){
-        imageHome.kf.setImage(with: URL(string: url), placeholder: UIImage(named: "car.png"))
+        imageHome.kf.setImage(with: URL(string: url), placeholder: UIImage(named: "imageSport"))
     }
 }

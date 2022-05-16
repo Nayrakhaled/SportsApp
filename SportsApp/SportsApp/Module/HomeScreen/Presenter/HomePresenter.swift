@@ -28,16 +28,15 @@ class HomePresenter: HomePresenterProtocol {
     }
     
     func getHomeSports(url: String){
-        NWService.getAllSports(url: url, complitionHandler: { [weak self](sport, error) in
-            
-            print(sport?[0].strSport ?? "")
-            self?.sport = sport
-                       
-            DispatchQueue.main.async {
-            self?.view.stopAnimating()
-                self?.view.renderCollectionView(sport: self!.sport)
-                          
-            }
-        })
+        NWService.loadData(url: url, param: [:], responseType: AllSports.self) { (sports, error) in
+            print(sports?.sports?[0].strSport ?? "")
+            self.sport = sports?.sports
+                                      
+                DispatchQueue.main.async {
+                self.view.stopAnimating()
+            self.view.renderCollectionView(sport: self.sport)
+                }
+        }
     }
+    
 }

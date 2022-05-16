@@ -1,5 +1,5 @@
 //
-//  LeaguesTableViewCell.swift
+//  FavouriteTableViewCell.swift
 //  SportsApp
 //
 //  Created by NayraKhaled on 5/16/22.
@@ -8,15 +8,12 @@
 
 import UIKit
 
-class LeaguesTableViewCell: UITableViewCell {
+class FavouriteTableViewCell: UITableViewCell {
+    
+    var goToYoutube:(() -> Void)!
 
-    var goToYoutube :(() ->Void)!
-
-    @IBOutlet weak var leagueNameLabel: UILabel!
-    
-    @IBOutlet weak var imageLeague: UIImageView!
-    
-    
+    @IBOutlet weak var nameLeagueLabel: UILabel!
+    @IBOutlet weak var imageFavLeague: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,6 +24,7 @@ class LeaguesTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
     @IBAction func btnYoutube(_ sender: UIButton) {
         goToYoutube?()

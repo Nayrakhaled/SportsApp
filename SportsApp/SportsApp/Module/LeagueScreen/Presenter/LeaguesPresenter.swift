@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol LeaguesPresenterProtocol{
-    func getLeagues(url: String)
+    func getLeagues(url: String, sportName: String)
     func attachView(view: LeaguesProtocol)
 }
 
@@ -18,7 +18,7 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
     
     var NWService : NetworkManagerProtocol! // service
     var league : [League]! // model
-    var view : LeaguesProtocol!  // DI
+    weak var view : LeaguesProtocol!  // DI
     
     init(NWService : NetworkManagerProtocol){
         self.NWService = NWService
@@ -28,17 +28,15 @@ class LeaguesPresenter: LeaguesPresenterProtocol {
         self.view = view
     }
     
-    func getLeagues(url: String){
-        NWService.getAllLeagues(url: url, complitionHandler: { [weak self](league, error) in
-            
-            print(league?[0].strLeague ?? "")
-            self?.league = league
-                       
+    func getLeagues(url: String, sportName: String){
+        NWService.loadData(url: url, param: ["s": sportName], responseType: AllLeagues.self) { (leagues, error) in print(leagues?.countries![0].strLeague ?? "")
+            self.league = leagues?.countries
+                                          
             DispatchQueue.main.async {
-            self?.view.stopAnimating()
-            self?.view.renderTableView(league: self!.league)
-                          
+                self.view.stopAnimating()
+            self.view.renderTableView(league: self.league)
+                
             }
-        })
+        }
     }
 }

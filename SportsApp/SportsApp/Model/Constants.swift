@@ -41,7 +41,7 @@ class Constants{
         var flag: Bool = false
 
         monitor.pathUpdateHandler = { pathUpdateHandler in
-            if pathUpdateHandler.status != .satisfied{
+            if pathUpdateHandler.status == .satisfied{
                 flag = true
             }else{
                 flag = false

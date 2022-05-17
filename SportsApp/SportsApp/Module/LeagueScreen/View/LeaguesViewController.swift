@@ -67,7 +67,7 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource{
         cell.imageLeague.clipsToBounds = true
         
         cell.goToYoutube = {
-            if Constants.checkConnection() == true{
+            if Constants.checkConnection() != true{
                 let youTubeURl = URL(string: "https://" +  self.leagues[indexPath.row].strYoutube!)
         
                 if UIApplication.shared.canOpenURL(youTubeURl!) {
@@ -85,11 +85,12 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         if Constants.checkConnection() == true{
+         if Constants.checkConnection() != true{
            let detailVC = storyboard?.instantiateViewController(withIdentifier: "event") as! EventsViewController
             //detailVC.league = leagues[indexPath.row]
             detailVC.modalPresentationStyle = .fullScreen
             present(detailVC, animated: true, completion:nil)
+            print("HERE.....")
             }else{
                 self.ShowAlert()
         }

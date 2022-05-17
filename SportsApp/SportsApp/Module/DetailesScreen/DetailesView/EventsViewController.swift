@@ -46,6 +46,8 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
          var rowCount = 0
                 if section == 0 {
                     rowCount = 1
+                    
+                    
                 }
                 if section == 1 {
                     rowCount = 1
@@ -56,6 +58,8 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
               
                 return rowCount
      }
+    
+  
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TeamsTableViewCell.ident) as! TeamsTableViewCell
@@ -113,8 +117,22 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         
      }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 450
+        
+        switch indexPath.row {
+               case 0:
+                   return 350
+               case 1:
+                   return 500
+               case 2:
+                   return 500
+               default:
+                   return 500
+               }
+        
+        
+        
     }
     
     

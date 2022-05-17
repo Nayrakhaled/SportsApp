@@ -10,34 +10,26 @@ import UIKit
 
 class ComingEventsCollectionViewCell: UICollectionViewCell,ComingoCellCollectionView{
     func labelname(name: Int) {
-        leagueNameLabel.text = ("\(name)")
+        UcomingNameEvent.text = ("\(name)")
     }
     
     
     
 
-    @IBOutlet var leagueNameLabel: UILabel!
+    @IBOutlet var upcomingImage: UIImageView!
     
-    @IBOutlet var roundLabel: UILabel!
-    
-    @IBOutlet var awayTeamImageView: UIImageView!
+    @IBOutlet var UcomingNameEvent: UILabel!
     
     
-    @IBOutlet var homeTeamImageView: UIImageView!
+    @IBOutlet var awayNameTeam: UILabel!
+    
+    @IBOutlet var eventTime: UILabel!
     
     
-    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var eventDate: UILabel!
     
     
-    @IBOutlet var dateLabel: UILabel!
-    
-    
-    @IBOutlet var awayTeamLabel: UILabel!
-    
-    
-    @IBOutlet var homeTeamLabel: UILabel!
-    
-    
+    @IBOutlet var homeNameTeam: UILabel!
     
     static let  ident = "comingCollectionCell"
        static func nib() -> UINib {
@@ -50,9 +42,9 @@ class ComingEventsCollectionViewCell: UICollectionViewCell,ComingoCellCollection
     }
     
     public func configure(model : Model){
-          self.leagueNameLabel.text = model.name
-          self.awayTeamImageView.contentMode = .scaleAspectFit
-        self.homeTeamLabel.contentMode = .scaleAspectFit
+          self.UcomingNameEvent.text = model.name
+        self.upcomingImage.contentMode = .scaleAspectFill
+       // self.homeTeamLabel.contentMode = .scaleAspectFit
 
       }
 

@@ -18,15 +18,18 @@ protocol TeamsViewCell: class {
 
 protocol TeamsCellCollectionView {
     //func configTableCell (todo :[Todo]!)
-    func labelname (name :Int)
+    func labelname (name :String)
+    func teamImage (image : String)
 }
+
+//https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s=Soccer&c=England
 
 
 class TeamsVCPresenter {
     
     private weak var view: TeamsViewCell?
-    private let interactor = TodosInteractor(baseUrl: "https://jsonplaceholder.typicode.com/")
-    private var todos = [Todo]()
+    private let interactor = TodosInteractor(baseUrl: "https://www.thesportsdb.com/api/v1/json/2/")
+    private var teams = [Team]()
     
     init(view: TeamsViewCell) {
         self.view = view
@@ -38,7 +41,7 @@ class TeamsVCPresenter {
     
     func getTeams(){
         view?.showIndicator()
-        interactor.getTodos(endPoint: "todos", completionHandler: { [weak self] todos, error in
+        interactor.getTeams(endPoint: "search_all_teams.php?s=Soccer&c=England", completionHandler: { [weak self] Allteams, error in
             
             print("Completion handler ")
             
@@ -48,21 +51,22 @@ class TeamsVCPresenter {
             if let error = error {
                 self.view?.showError()
             } else {
-                guard let todos = todos else { return }
-                self.todos = todos
-                print("Completion handler success \(todos.count)")
+                guard let allTeams = Allteams else { return }
+                self.teams = allTeams.teams
+               
                 self.view?.fetchingDataSuccess()
             }
         })
     }
     
-    func getTodosCount() -> Int {
-        return todos.count
+    func getTeamCount() -> Int {
+        return teams.count
     }
     
     func configure(cell : TeamsCellCollectionView , index : Int) {
-        let todo = todos[index]
-        cell.labelname(name: todo.id)
+        let team = teams[index]
+        cell.labelname(name: team.strTeam ?? "nil")
+        cell.teamImage(image: team.strTeamBadge ?? "car.png")
        
     }
     

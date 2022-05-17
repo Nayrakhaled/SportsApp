@@ -9,9 +9,9 @@
 import UIKit
 
 class TeamsCollectionViewCell: UICollectionViewCell ,TeamsCellCollectionView{
-    func labelname(name: Int) {
-        teamNameImage.text = "\(name)"
-    }
+  
+    
+    
     
    
     
@@ -30,10 +30,16 @@ class TeamsCollectionViewCell: UICollectionViewCell ,TeamsCellCollectionView{
         super.awakeFromNib()
         // Initialization code
     }
-    public func configure(model : Model){
-        self.teamNameImage.text = model.name
-        self.teamImage.contentMode = .scaleAspectFit
-    }
+   
+    func teamImage(image: String) {
+           teamImage.kf.setImage(with: URL(string:image), placeholder: UIImage(named: "car.png"))
+       }
+       
+    func labelname(name: String) {
+             teamNameImage.text = name
+                 print(name)
+               //  teamImage.kf.setImage(with: URL(string:image ), placeholder: UIImage(named: "car.png"))
+       }
 
     
 }

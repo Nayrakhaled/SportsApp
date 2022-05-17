@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LatestEventsTableViewCell: UITableViewCell ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,TodosViewCell {
+class LatestEventsTableViewCell: UITableViewCell ,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,LatestViewCell {
     func showIndicator() {
         print("start indictor")
     }
@@ -35,7 +35,7 @@ class LatestEventsTableViewCell: UITableViewCell ,UICollectionViewDelegate,UICol
            return UINib(nibName: "LatestEventsTableViewCell", bundle: nil)
        }
        var models = [Model]()
-    var prenenter :TodosVCPresenter!
+    var prenenter :LatestVCPresenter!
     @IBOutlet var latestTitleCell: UILabel!
     @IBOutlet var latestCollection: UICollectionView!
     override func awakeFromNib() {
@@ -45,19 +45,12 @@ class LatestEventsTableViewCell: UITableViewCell ,UICollectionViewDelegate,UICol
         latestCollection.delegate = self
         latestCollection.dataSource = self
         latestCollection.register(LatestEventsCollectionViewCell.nib(), forCellWithReuseIdentifier: LatestEventsCollectionViewCell.ident)
-        prenenter = TodosVCPresenter(view: self)
+        prenenter = LatestVCPresenter (view: self)
         prenenter.viewDidLoad()
     }
 
     
-    func configure (){
-        //  self.models = model
-        print("reload collection")
-
-          //latestCollection.reloadData()
-        print("reload collection")
-          
-      }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -65,7 +58,7 @@ class LatestEventsTableViewCell: UITableViewCell ,UICollectionViewDelegate,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return prenenter.getTodosCount()
+        return prenenter.getLatestEventsCount()
          }
          
          func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

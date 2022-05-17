@@ -8,11 +8,8 @@
 
 import UIKit
 
-class LatestEventsCollectionViewCell: UICollectionViewCell,TodoCellCollectionView {
-    func labelname(name: Int) {
-        self.homeTeamName.text = ("\(name)")
-        print("\(name)")
-    }
+class LatestEventsCollectionViewCell: UICollectionViewCell,LatestCellCollectionView {
+    
     
    
     
@@ -39,10 +36,18 @@ class LatestEventsCollectionViewCell: UICollectionViewCell,TodoCellCollectionVie
         super.awakeFromNib()
         // Initialization code
     }
-    public func configure(model : Model){
-        self.homeTeamName.text = model.name
-        self.homeImage.contentMode = .scaleAspectFit
-        self.awayName.contentMode = .scaleAspectFit
-    }
+   
+    func awayTeamName(name: String) {
+         awayTeamName.text = name
+     }
+     
+     func homeTeamName(name: String) {
+         homeTeamName.text = name
+     }
+     
+     func resultLabel(image: String) {
+         resultLabel.text = image
+     }
+     
 
 }

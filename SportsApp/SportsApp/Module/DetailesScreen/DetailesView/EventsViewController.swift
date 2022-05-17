@@ -16,7 +16,11 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
   
     @IBOutlet var eventssTable: UITableView!
     
-    var model = [Model]()
+     var league  = League()
+       let id = "4328"
+       let sportName = "Soccer"
+       let sportCountry = "England"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -91,6 +95,11 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         cellThree.layer.shadowOpacity = 0.3
         cellThree.layer.masksToBounds = false
         
+        // data
+             
+              cellThree.leagueId(id:league.idLeague ?? "k" )
+              cell.SportNameAndSportCountry(sportName: league.strSport ?? "" , sportContury: league.strCountry ?? "" )
+        print(" object from league screen :  \(league.strSport) + \(league.strLeague) + \(league.idLeague)")
         switch indexPath.section {
                case 0:
                  //  cell.ayaa = ayaList[0]

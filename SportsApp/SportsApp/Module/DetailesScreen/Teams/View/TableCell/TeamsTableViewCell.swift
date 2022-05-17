@@ -35,9 +35,13 @@ class TeamsTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVi
         //presenter
         present = TeamsVCPresenter(service: NetworkManager())
         present.attachView(view: self)
-        present.getAllTeams(url: Constants.AllTeams, sportName: "Soccer", sportContury:"England")
         
     }
+    
+    func SportNameAndSportCountry (sportName: String, sportContury:String){
+           present.getAllTeams(url: Constants.AllTeams, sportName: sportName, sportContury:sportContury)
+
+       }
     
 
     override func setSelected(_ selected: Bool, animated: Bool) {

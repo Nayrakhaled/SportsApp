@@ -87,7 +87,7 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          if Constants.checkConnection() != true{
            let detailVC = storyboard?.instantiateViewController(withIdentifier: "event") as! EventsViewController
-            //detailVC.league = leagues[indexPath.row]
+            detailVC.league = leagues[indexPath.row]
             detailVC.modalPresentationStyle = .fullScreen
             present(detailVC, animated: true, completion:nil)
             print("HERE.....")

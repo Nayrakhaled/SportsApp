@@ -24,6 +24,10 @@ class LatestEventsTableViewCell: UITableViewCell ,UICollectionViewDelegate,UICol
       //presenter
       var prenenter :LatestVCPresenter!
     
+    //id
+      
+      var id :String?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,8 +42,13 @@ class LatestEventsTableViewCell: UITableViewCell ,UICollectionViewDelegate,UICol
         //presenter 
         prenenter = LatestVCPresenter (service: NetworkManager())
         prenenter.attachView(view: self)
-        prenenter.getLastestEvents(url: Constants.LatestEvent, leaugeId:"4328")
     }
+    
+    func leagueId (id :String){
+           self.id = id
+           prenenter.getLastestEvents(url: Constants.LatestEvent, leaugeId:id)
+
+       }
 
     
     

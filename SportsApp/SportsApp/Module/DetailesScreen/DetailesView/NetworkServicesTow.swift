@@ -39,41 +39,7 @@ class TodosInteractor {
         
     }
         
-        func getTeams(endPoint: String, completionHandler: @escaping (AllTeams?, Error?) -> ()) {
-               
-               AF.request(self.baseUrl + endPoint, method: .get).responseDecodable(of: AllTeams.self) { (response) in
-                 //  print("result: \(response)")
-                   
-                   let result = response.result
-                   switch result {
-                   case .success(let team):
-                       print("Result SUCCESS")
-                       completionHandler(team, nil)
-                   case .failure(let error):
-                       print("Result FAILED")
-                       completionHandler(nil, error)
-                   }
-                   
-               }
-           }
-    
-    func getLatestEvents(endPoint: String, completionHandler: @escaping (EventResponse?, Error?) -> ()) {
-                
-                AF.request(self.baseUrl + endPoint, method: .get).responseDecodable(of: EventResponse.self) { (response) in
-                  //  print("result: \(response)")
-                    
-                    let result = response.result
-                    switch result {
-                    case .success(let latestEvent):
-                        print("Result SUCCESS")
-                        completionHandler(latestEvent, nil)
-                    case .failure(let error):
-                        print("Result FAILED")
-                        completionHandler(nil, error)
-                    }
-                    
-                }
-            }
+       
 
     }
 

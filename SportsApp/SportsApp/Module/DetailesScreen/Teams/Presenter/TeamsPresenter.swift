@@ -22,42 +22,49 @@ protocol TeamsCellCollectionView {
     func teamImage (image : String)
 }
 
-//https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s=Soccer&c=England
 
 
 class TeamsVCPresenter {
     
     private weak var view: TeamsViewCell?
-    private let interactor = TodosInteractor(baseUrl: "https://www.thesportsdb.com/api/v1/json/2/")
+    
+    private var service : NetworkManagerProtocol!
     private var teams = [Team]()
     
-    init(view: TeamsViewCell) {
+    
+    
+     func attachView (view: TeamsViewCell) {
         self.view = view
     }
-    
-    func viewDidLoad() {
-        getTeams()
+     init (service : NetworkManagerProtocol!){
+        self.service = service
     }
     
-    func getTeams(){
+    
+   
+    
+    func getAllTeams (url: String, sportName: String,sportContury:String){
+     
         view?.showIndicator()
-        interactor.getTeams(endPoint: "search_all_teams.php?s=Soccer&c=England", completionHandler: { [weak self] Allteams, error in
+        service.loadData(url: url, param: ["s": sportName,"c":sportContury], responseType: AllTeams.self) { (Allteams, error) in
             
             print("Completion handler ")
-            
-            guard let self = self else { return }
-            self.view?.hideIndicator()
-            
-            if let error = error {
-                self.view?.showError()
-            } else {
-                guard let allTeams = Allteams else { return }
-                self.teams = allTeams.teams
-               
-                self.view?.fetchingDataSuccess()
+                     
+                self.view?.hideIndicator()
+                     
+                if let error = error {
+                         self.view?.showError()
+                     } else {
+                         guard let allTeams = Allteams else { return }
+                         self.teams = allTeams.teams
+                        
+                         self.view?.fetchingDataSuccess()
+                     }
+                
             }
-        })
-    }
+        }
+    
+  
     
     func getTeamCount() -> Int {
         return teams.count

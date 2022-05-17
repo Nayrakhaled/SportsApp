@@ -10,10 +10,12 @@ import Foundation
 import Network
 
 class Constants{
-    
+  
     static let BASE_URL = "https://www.thesportsdb.com/api/v1/json/2/"
     static let ALLSPORTS = "all_sports.php"
     static let ALLLEAGUES = "search_all_leagues.php?s="
+    static let AllTeams = "search_all_teams.php?s=&c="
+    static let LatestEvent = "eventsseason.php?id="
     
     static func checkConnection() -> Bool{
         let monitor = NWPathMonitor()

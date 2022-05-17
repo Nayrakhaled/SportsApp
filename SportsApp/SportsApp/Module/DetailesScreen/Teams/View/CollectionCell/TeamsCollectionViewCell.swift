@@ -10,16 +10,11 @@ import UIKit
 
 class TeamsCollectionViewCell: UICollectionViewCell ,TeamsCellCollectionView{
   
-    
-    
-    
-   
-    
-//teamCollectionCell
-    
+  
     @IBOutlet var teamNameImage: UILabel!
     @IBOutlet var teamImage: UIImageView!
     
+    //nib collection cell
     static let  ident = "teamCollectionCell"
     static func nib() -> UINib {
         return UINib(nibName: "TeamsCollectionViewCell", bundle: nil)
@@ -31,6 +26,8 @@ class TeamsCollectionViewCell: UICollectionViewCell ,TeamsCellCollectionView{
         // Initialization code
     }
    
+    
+    //presenter function
     func teamImage(image: String) {
            teamImage.kf.setImage(with: URL(string:image), placeholder: UIImage(named: "car.png"))
        }

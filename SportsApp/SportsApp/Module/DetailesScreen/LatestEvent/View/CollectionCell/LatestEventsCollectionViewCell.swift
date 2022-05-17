@@ -11,7 +11,6 @@ import Kingfisher
 class LatestEventsCollectionViewCell: UICollectionViewCell,LatestCellCollectionView {
   
   
-   ///
     @IBOutlet var eventImage: UIImageView!
     
     @IBOutlet var awayTeamNameLabel: UILabel!
@@ -22,15 +21,19 @@ class LatestEventsCollectionViewCell: UICollectionViewCell,LatestCellCollectionV
     
     @IBOutlet var homeTeamNameLabel: UILabel!
     
-    
+    //xib collection
     static let  ident = "latestCollectionCell"
     static func nib() -> UINib {
         return UINib(nibName: "LatestEventsCollectionViewCell", bundle: nil)
     }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    //presenter functions 
    
     func awayTeamName(name: String) {
          awayTeamNameLabel.text = name

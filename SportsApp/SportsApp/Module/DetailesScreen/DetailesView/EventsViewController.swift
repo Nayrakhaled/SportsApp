@@ -20,6 +20,9 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        
+        //register All cells
+        
         eventssTable.register(TeamsTableViewCell.nib(), forCellReuseIdentifier: TeamsTableViewCell.ident)
         eventssTable.register(ComingEventsTableViewCell.nib(), forCellReuseIdentifier: ComingEventsTableViewCell.ident)
         eventssTable.register(LatestEventsTableViewCell.nib(), forCellReuseIdentifier: LatestEventsTableViewCell.ident)
@@ -29,9 +32,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         eventssTable.delegate = self
         // Do any additional setup after loading the view.
        
-        model.append(Model(name: "aya"))
-        model.append(Model(name: "aya"))
-        
+     
 
         
         
@@ -65,9 +66,27 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         
         
         
-        //
-        cell.configure(model: model)
-        //
+        cell.layer.shadowColor = UIColor.black.cgColor
+               cell.layer.shadowOffset = CGSize(width: 3, height: 3)
+               cell.layer.shadowRadius = 4
+               cell.layer.shadowOpacity = 0.3
+               cell.layer.masksToBounds = false
+        
+        
+        
+        cellTow.layer.shadowColor = UIColor.black.cgColor
+               cellTow.layer.shadowOffset = CGSize(width: 3, height: 3)
+               cellTow.layer.shadowRadius = 4
+               cellTow.layer.shadowOpacity = 0.3
+               cellTow.layer.masksToBounds = false
+        
+        
+        cellThree.layer.shadowColor = UIColor.black.cgColor
+        cellThree.layer.shadowOffset = CGSize(width: 3, height: 3)
+        cellThree.layer.shadowRadius = 4
+        cellThree.layer.shadowOpacity = 0.3
+        cellThree.layer.masksToBounds = false
+        
         switch indexPath.section {
                case 0:
                  //  cell.ayaa = ayaList[0]

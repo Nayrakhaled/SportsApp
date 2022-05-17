@@ -7,25 +7,20 @@
 //
 
 import UIKit
-
+import Kingfisher
 class LatestEventsCollectionViewCell: UICollectionViewCell,LatestCellCollectionView {
+  
+  
+   ///
+    @IBOutlet var eventImage: UIImageView!
     
+    @IBOutlet var awayTeamNameLabel: UILabel!
     
-   
+    @IBOutlet var resultEventLabel: UILabel!
     
-   
+    @IBOutlet var eventName: UILabel!
     
-
-    @IBOutlet var homeTeamName: UILabel!
-    
-    @IBOutlet var homeImage: UIImageView!
-    
-    
-    @IBOutlet var resultLabel: UILabel!
-    
-    @IBOutlet var awayName: UIImageView!
-    
-    @IBOutlet var awayTeamName: UILabel!
+    @IBOutlet var homeTeamNameLabel: UILabel!
     
     
     static let  ident = "latestCollectionCell"
@@ -38,16 +33,24 @@ class LatestEventsCollectionViewCell: UICollectionViewCell,LatestCellCollectionV
     }
    
     func awayTeamName(name: String) {
-         awayTeamName.text = name
+         awayTeamNameLabel.text = name
      }
      
      func homeTeamName(name: String) {
-         homeTeamName.text = name
+         homeTeamNameLabel.text = name
      }
      
-     func resultLabel(image: String) {
-         resultLabel.text = image
+     func resultLabel(name: String) {
+         resultEventLabel.text = name
      }
      
+     func eventImage(image: String) {
+        eventImage.kf.setImage(with: URL(string:image), placeholder: UIImage(named: "car.png"))
+
+       }
+       
+       func eventName(name: String) {
+        eventName.text = name
+       }
 
 }

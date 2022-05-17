@@ -21,7 +21,9 @@ protocol LatestCellCollectionView {
     //func configTableCell (todo :[Todo]!)
     func awayTeamName (name :String)
     func homeTeamName (name :String)
-    func resultLabel (image :String)
+    func resultLabel (name :String)
+    func eventImage (image :String)
+    func eventName (name :String)
 }
 
 //https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?id=4328
@@ -67,7 +69,9 @@ class LatestVCPresenter {
            let latestEvents = latestEvent[index]
            cell.awayTeamName(name: latestEvents.strAwayTeam ?? "away")
            cell.homeTeamName(name: latestEvents.strHomeTeam ?? "home")
-           cell.resultLabel(image:"\(latestEvents.intAwayScore ?? "0") :\(latestEvents.intHomeScore ?? "0")")
+           cell.resultLabel(name:"\(latestEvents.intAwayScore ?? "0") :\(latestEvents.intHomeScore ?? "0")")
+           cell.eventName(name: latestEvents.strEvent ?? "vs")
+        cell.eventImage(image: latestEvents.strThumb ?? "thumb.png")
            
           
        }

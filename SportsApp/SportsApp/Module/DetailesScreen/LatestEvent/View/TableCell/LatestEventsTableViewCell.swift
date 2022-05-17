@@ -69,7 +69,7 @@ class LatestEventsTableViewCell: UITableViewCell ,UICollectionViewDelegate,UICol
          }
       
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          return CGSize(width: 500, height: 90)
+          return CGSize(width: 500, height: 200)
       }
     
 }

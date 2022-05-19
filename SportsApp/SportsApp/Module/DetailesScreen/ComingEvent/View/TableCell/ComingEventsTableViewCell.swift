@@ -30,7 +30,6 @@ class ComingEventsTableViewCell: UITableViewCell,UICollectionViewDelegate,UIColl
       static func nib() -> UINib {
           return UINib(nibName: "ComingEventsTableViewCell", bundle: nil)
       }
-      var models = [Model]()
   
     @IBOutlet var collection: UICollectionView!
     @IBOutlet var tableLabel: UILabel!
@@ -58,12 +57,7 @@ class ComingEventsTableViewCell: UITableViewCell,UICollectionViewDelegate,UIColl
         // Configure the view for the selected state
     }
     
-     func configure (model:[Model]){
-        self.models = model
-        collection.reloadData()
-
-    
-    }
+  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.getTodosCount()
        }

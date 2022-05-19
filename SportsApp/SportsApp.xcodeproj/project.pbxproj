@@ -24,9 +24,11 @@
 		3F2169FB2830250C0094B778 /* TeamsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F2169F92830250C0094B778 /* TeamsTableViewCell.xib */; };
 		3F3DA93A28332A390024F9DF /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA93928332A390024F9DF /* Team.swift */; };
 		3F3DA93C28332E7E0024F9DF /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA93B28332E7E0024F9DF /* EventResponse.swift */; };
+		3F44E01B2834873F000D57F5 /* SecondVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F44E01A2834873F000D57F5 /* SecondVCViewController.swift */; };
 		3F8F1E7F28317C3600C3AD1B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F1E7E28317C3600C3AD1B /* Todo.swift */; };
 		3F8F1E8128317E8000C3AD1B /* NetworkServicesTow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F1E8028317E8000C3AD1B /* NetworkServicesTow.swift */; };
 		3F8F1E852831885700C3AD1B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F1E842831885700C3AD1B /* EventsViewController.swift */; };
+		3FD612AE2836BD4500D640DF /* TeamDetailesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD612AD2836BD4500D640DF /* TeamDetailesViewController.swift */; };
 		4E0F69A457BF911E9C2B8CCE /* Pods_SportsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B4E67FA96099194C3831F1C /* Pods_SportsApp.framework */; };
 		A121658879D3CA6B823ABB45 /* Pods_SportsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAFC8CD830E42D3DD493BC2E /* Pods_SportsAppTests.framework */; };
 		B725D8312832B5B100D9C54E /* LeaguesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B725D82F2832B5B100D9C54E /* LeaguesTableViewCell.swift */; };
@@ -88,9 +90,11 @@
 		3F2169F92830250C0094B778 /* TeamsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamsTableViewCell.xib; sourceTree = "<group>"; };
 		3F3DA93928332A390024F9DF /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		3F3DA93B28332E7E0024F9DF /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
+		3F44E01A2834873F000D57F5 /* SecondVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVCViewController.swift; sourceTree = "<group>"; };
 		3F8F1E7E28317C3600C3AD1B /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		3F8F1E8028317E8000C3AD1B /* NetworkServicesTow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesTow.swift; sourceTree = "<group>"; };
 		3F8F1E842831885700C3AD1B /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		3FD612AD2836BD4500D640DF /* TeamDetailesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailesViewController.swift; sourceTree = "<group>"; };
 		6B4E67FA96099194C3831F1C /* Pods_SportsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C2E5187E2F24BA3A6EA23F /* Pods-SportsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsApp.debug.xcconfig"; path = "Target Support Files/Pods-SportsApp/Pods-SportsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9CF7276905527765C5B8E3A4 /* Pods-SportsAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsAppTests.release.xcconfig"; path = "Target Support Files/Pods-SportsAppTests/Pods-SportsAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			children = (
 				3F2169D6283022720094B778 /* Presenter */,
 				3F2169D52830226A0094B778 /* View */,
+				3F44E01A2834873F000D57F5 /* SecondVCViewController.swift */,
 			);
 			path = Teams;
 			sourceTree = "<group>";
@@ -313,6 +318,22 @@
 			path = DetailesView;
 			sourceTree = "<group>";
 		};
+		3FD612AA2836BCC500D640DF /* TeamDetailes */ = {
+			isa = PBXGroup;
+			children = (
+				3FD612AB2836BD1700D640DF /* View */,
+			);
+			path = TeamDetailes;
+			sourceTree = "<group>";
+		};
+		3FD612AB2836BD1700D640DF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3FD612AD2836BD4500D640DF /* TeamDetailesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9ED6401B4B447E7282AA9F1C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +465,7 @@
 			children = (
 				B725D8342832BECC00D9C54E /* FavouriteScreen */,
 				3F2169CA2830216D0094B778 /* DetailesScreen */,
+				3FD612AA2836BCC500D640DF /* TeamDetailes */,
 				B796AD2E282EC33900314198 /* LeagueScreen */,
 				B7CB6F6C282D3E87000C25A0 /* HomeScreen */,
 			);
@@ -701,6 +723,7 @@
 				B725D83A2832BF3100D9C54E /* FavouriteViewController.swift in Sources */,
 				3F8F1E852831885700C3AD1B /* EventsViewController.swift in Sources */,
 				B725D83C2832C78800D9C54E /* DBManager.swift in Sources */,
+				3F44E01B2834873F000D57F5 /* SecondVCViewController.swift in Sources */,
 				B7CB6F78282D4358000C25A0 /* Constants.swift in Sources */,
 				3F2169F6283024A90094B778 /* TeamsCollectionViewCell.swift in Sources */,
 				B7425E31282C357B00B6B0BF /* SceneDelegate.swift in Sources */,
@@ -719,6 +742,7 @@
 				B7CB6F74282D408B000C25A0 /* AllSports.swift in Sources */,
 				B796AD2B282E819100314198 /* League.swift in Sources */,
 				3F2169F2283024420094B778 /* LatestEventsTableViewCell.swift in Sources */,
+				3FD612AE2836BD4500D640DF /* TeamDetailesViewController.swift in Sources */,
 				B7CB6F67282D3594000C25A0 /* HomeCollectionViewCell.swift in Sources */,
 				3F2169E6283023DB0094B778 /* ComingEventsTableViewCell.swift in Sources */,
 			);

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EventsViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate {
  
@@ -21,6 +22,8 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
        let sportName = "Soccer"
        let sportCountry = "England"
     
+    
+     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -37,7 +40,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
        
      
-
+      //  let Fav = FavouriteLeague(context:context)
         
         
         
@@ -63,6 +66,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
                 return rowCount
      }
     
+
   
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,12 +103,12 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
              
               cellThree.leagueId(id:league.idLeague ?? "k" )
               cell.SportNameAndSportCountry(sportName: league.strSport ?? "" , sportContury: league.strCountry ?? "" )
-        print(" object from league screen :  \(league.strSport) + \(league.strLeague) + \(league.idLeague)")
+       
         switch indexPath.section {
                case 0:
                  //  cell.ayaa = ayaList[0]
                 //cellTow.configure(model: model)
-                         
+                
 
                    return cellTow
                case 1:
@@ -115,7 +119,20 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
                case 2:
                      
                      // cell.configure(model: model)
-
+       // cell.configureCell(data: ["Your", "Data"])
+                
+                if Constants.checkConnection() != true{
+                  cell.didSelectRow = { data in
+             
+            
+            let detailVC = self.storyboard?.instantiateViewController(withIdentifier:"teamVc") as! TeamDetailesViewController
+                       
+                       detailVC.modalPresentationStyle = .fullScreen
+                       self.present(detailVC, animated: true, completion:nil)
+            detailVC.setTeamDetailes(team: data)
+                    }}else{
+                    self.ShowAlert()
+                }
                      return cell
                default:
                    return cell
@@ -140,13 +157,24 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
                    return 500
                }
         
+    
         
         
     }
     
+    func ShowAlert(){
+        let alert = UIAlertController(title: "No Internt Connection", message: "You cann't open TeamsScreen without internet.", preferredStyle: .alert)
+        let okBtn = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okBtn)
+        self.present(alert, animated: true, completion: nil)
+    }
+  
+    @IBAction func backBtn(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
     
-
-
+    @IBAction func FavBtn(_ sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 
@@ -158,10 +186,5 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
     */
 
 }
-struct Model {
-      var name : String!
-      init(name :String) {
-          self.name = name
-      }
-  }
+
 

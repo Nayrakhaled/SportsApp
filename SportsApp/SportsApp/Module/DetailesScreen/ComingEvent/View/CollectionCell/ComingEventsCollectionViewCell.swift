@@ -41,12 +41,7 @@ class ComingEventsCollectionViewCell: UICollectionViewCell,ComingoCellCollection
         // Initialization code
     }
     
-    public func configure(model : Model){
-          self.UcomingNameEvent.text = model.name
-        self.upcomingImage.contentMode = .scaleAspectFill
-       // self.homeTeamLabel.contentMode = .scaleAspectFit
-
-      }
+   
 
    
 

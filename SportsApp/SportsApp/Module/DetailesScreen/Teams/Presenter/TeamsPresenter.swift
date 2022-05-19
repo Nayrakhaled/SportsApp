@@ -14,6 +14,8 @@ protocol TeamsViewCell: class {
     func hideIndicator()
     func fetchingDataSuccess()
     func showError()
+    func configTableCell(Team:[Team])
+    
 }
 
 protocol TeamsCellCollectionView {
@@ -57,8 +59,8 @@ class TeamsVCPresenter {
                      } else {
                          guard let allTeams = Allteams else { return }
                          self.teams = allTeams.teams
-                        
-                         self.view?.fetchingDataSuccess()
+                    self.view?.configTableCell(Team: self.teams)
+                        // self.view?.fetchingDataSuccess()
                      }
                 
             }

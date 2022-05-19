@@ -9,7 +9,18 @@
 import UIKit
 
 class TeamsTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout ,TeamsViewCell{
-  
+    
+    
+    
+    
+    var didSelectRow: ((_ data: Team) -> Void)? = nil // Closure
+       
+    var arrData = [Team]()
+     
+    func configTableCell(Team: [Team]) {
+        arrData = Team
+        teamCollection.reloadData()
+    }
     
     //xib table cell
     static let  ident = "teamTableCell"
@@ -32,7 +43,6 @@ class TeamsTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVi
         //register the collection cell
         teamCollection.register(TeamsCollectionViewCell.nib(), forCellWithReuseIdentifier: TeamsCollectionViewCell.ident)
         
-        //presenter
         present = TeamsVCPresenter(service: NetworkManager())
         present.attachView(view: self)
         
@@ -53,7 +63,7 @@ class TeamsTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVi
     //collection functions
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return present.getTeamCount()
+        return arrData.count
        }
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,6 +84,10 @@ class TeamsTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVi
         return CGSize(width: 250, height: 250)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+          
+          let data = self.arrData[indexPath.row]
+                 didSelectRow?(data)      }
     
     
     //presnter functions
@@ -87,7 +101,7 @@ class TeamsTableViewCell:UITableViewCell,UICollectionViewDelegate,UICollectionVi
       }
       
       func fetchingDataSuccess() {
-          teamCollection.reloadData()
+         // teamCollection.reloadData()
       }
       
       func showError() {

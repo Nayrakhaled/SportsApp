@@ -11,6 +11,7 @@ import CoreData
 
 protocol FavLeagueProtocol {
     func renderTableView(league: [League])
+    func renderTableViewWithFav (fav :[SavingLeague])
 }
 
 class FavouriteViewController: UIViewController {
@@ -104,6 +105,11 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
 
 
 extension FavouriteViewController : FavLeagueProtocol {
+    func renderTableViewWithFav(fav: [SavingLeague]) {
+        // array of SavingFav array = fav
+      //  reload table
+    }
+    
     func renderTableView(league: [League]) {
         self.leagues = league
         self.favTableView.reloadData()

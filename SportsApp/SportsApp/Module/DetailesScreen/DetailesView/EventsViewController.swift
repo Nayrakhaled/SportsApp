@@ -21,8 +21,10 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
        let sportName = "Soccer"
        let sportCountry = "England"
     
-    
+    //context CoreData
      let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -101,20 +103,18 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
        
         switch indexPath.section {
                case 0:
-                 //  cell.ayaa = ayaList[0]
-                //cellTow.configure(model: model)
+              
                 
 
                    return cellTow
                case 1:
-               //  cellThree.configure()
+              
 
                    return cellThree
             
                case 2:
                      
-                     // cell.configure(model: model)
-       // cell.configureCell(data: ["Your", "Data"])
+       
                 
                 if Constants.checkConnection() != true{
                   cell.didSelectRow = { data in
@@ -169,7 +169,9 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
     }
     
     @IBAction func FavBtn(_ sender: UIButton) {
+       
         var coreData = CoreDataManger(context: context)
+       
         coreData.addLeague(leauge: league.strLeague ?? "", youtube: league.strYoutube ?? "", padge: league.strBadge ?? "")
         
     }

@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 class CoreDataManger : CoreDataProtocol{
+    
   
    
     
@@ -52,7 +53,7 @@ class CoreDataManger : CoreDataProtocol{
               return FavLeagues
           }
     
-    func delete (league : FavLeague){
+    func delete (league : SavingLeague){
           
           context.delete(league)
           

@@ -33,10 +33,14 @@ class FavLeaguePresenter: FavLeaguePresenterProtocol{
     
     func getFavLeague() {
         let leagueArray = db.getFavLeague()
-        DispatchQueue.main.async {
-            self.view.renderTableView(league: leagueArray)
-                       
+        if leagueArray.count != 0{
+            DispatchQueue.main.async {
+                self.view.renderTableView(league: leagueArray)
+            }
+        }else{
+            
         }
+        
     }
     
     func deleteFavLeague(position: Int) {

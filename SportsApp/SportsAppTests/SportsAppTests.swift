@@ -23,31 +23,59 @@ class SportsAppTests: XCTestCase {
 
     func testGetAllSports(){
         let expectaion = expectation(description: "Waiting All Sports")
-        networkManager.getAllSports(url: Constants.BASE_URL + Constants.ALLSPORTS) { (sports, error) in
-                   guard let sports = sports else{
-                       XCTFail()
-                       expectaion.fulfill()
-                       return
-                   }
-                XCTAssertEqual(sports.count, 34, "API Faild")
-                   expectaion.fulfill()
-               }
-               waitForExpectations(timeout: 5, handler: nil)
-           }
+        networkManager.loadData(url: Constants.ALLSPORTS, param: [:], responseType: AllSports.self) { (sports, error) in
+                guard let sports = sports else{
+                    XCTFail()
+                    expectaion.fulfill()
+                    return
+                }
+            XCTAssertEqual(sports.sports!.count, 34, "API Faild")
+                expectaion.fulfill()
+            }
+            waitForExpectations(timeout: 5, handler: nil)
+        }
 
     func testGetAllLeagues(){
-    let expectaion = expectation(description: "Waiting All Leagues of Spport")
-    networkManager.getAllLeagues(url: Constants.BASE_URL + Constants.ALLLEAGUES + "Soccer") { (leagues, error) in
-               guard let leagues = leagues else{
-                   XCTFail()
-                   expectaion.fulfill()
-                   return
-               }
-            XCTAssertEqual(leagues.count, 10, "API Faild")
-               expectaion.fulfill()
-           }
-           waitForExpectations(timeout: 5, handler: nil)
-       }
+        let expectaion = expectation(description: "Waiting All Sports")
+        networkManager.loadData(url: Constants.ALLLEAGUES, param: ["s":"Soccer"], responseType: AllLeagues.self) { (leagues, error) in
+                guard let leagues = leagues else{
+                    XCTFail()
+                    expectaion.fulfill()
+                    return
+                }
+                XCTAssertEqual(leagues.countries!.count, 10, "API Faild")
+                expectaion.fulfill()
+            }
+            waitForExpectations(timeout: 5, handler: nil)
+    }
     
-
+    
+    func testGetTeamDetail(){
+        let expectaion = expectation(description: "Waiting All Sports")
+        networkManager.loadData(url: Constants.AllTeams, param: ["s":"Soccer"], responseType: Team.self) { (teams, error) in
+                guard let teams = teams else{
+                    XCTFail()
+                    expectaion.fulfill()
+                    return
+                }
+            //XCTAssertEqual(teams, 10, "API Faild")
+                expectaion.fulfill()
+            }
+            waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testGetLastestEvent(){
+        let expectaion = expectation(description: "Waiting All Sports")
+        networkManager.loadData(url: Constants.LatestEvent, param: ["s":"Soccer"], responseType: EventResponse.self) { (events, error) in
+                guard let events = events else{
+                    XCTFail()
+                    expectaion.fulfill()
+                    return
+                }
+              //  XCTAssertEqual(leagues.countries!.count, 10, "API Faild")
+                expectaion.fulfill()
+            }
+            waitForExpectations(timeout: 5, handler: nil)
+    }
+    
 }

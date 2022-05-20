@@ -26,9 +26,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlY-bR-8Xh">
-                        <rect key="frame" x="237" y="0.0" width="78" height="44"/>
-                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <state key="normal" title="Button" image="play.rectangle.fill" catalog="system"/>
+                        <rect key="frame" x="291" y="0.0" width="24" height="44"/>
+                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" image="play.rectangle.fill" catalog="system"/>
                         <connections>
                             <action selector="btnYoutube:" destination="g0G-O3-rJO" eventType="touchUpInside" id="W10-y1-jvw"/>
                         </connections>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VFK-Kw-jqf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VFK-Kw-jqf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -82,7 +82,7 @@
         <!--Leagues-->
         <scene sceneID="sRB-Ne-bDQ">
             <objects>
-                <viewController storyboardIdentifier="league" title="Leagues" id="4j2-kA-Ul3" customClass="LeaguesViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="league" title="Leagues" hidesBottomBarWhenPushed="YES" id="4j2-kA-Ul3" customClass="LeaguesViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mfz-K0-SlM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -109,10 +109,10 @@
             </objects>
             <point key="canvasLocation" x="3450.7246376811595" y="-111.16071428571428"/>
         </scene>
-        <!--Events View Controller-->
+        <!--Leagues Detail-->
         <scene sceneID="ENK-dE-KFV">
             <objects>
-                <viewController storyboardIdentifier="event" id="Kuo-KV-f2s" customClass="EventsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="event" title="Leagues Detail" id="Kuo-KV-f2s" customClass="EventsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ds1-AB-icC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,10 +204,10 @@
             </objects>
             <point key="canvasLocation" x="4747.826086956522" y="-210.26785714285714"/>
         </scene>
-        <!--Team Detailes View Controller-->
+        <!--Team-->
         <scene sceneID="d6P-nf-LzJ">
             <objects>
-                <viewController storyboardIdentifier="teamVc" id="tl0-Bh-KzD" customClass="TeamDetailesViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="teamVc" title="Team" id="tl0-Bh-KzD" customClass="TeamDetailesViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hyh-JI-jk4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -462,10 +462,10 @@
             </objects>
             <point key="canvasLocation" x="621.73913043478262" y="71.651785714285708"/>
         </scene>
-        <!--Favourites-->
+        <!--Favourite-->
         <scene sceneID="uFK-KE-BjW">
             <objects>
-                <viewController id="j2a-JZ-KjT" customClass="FavouriteViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Favourite" id="j2a-JZ-KjT" customClass="FavouriteViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nb8-kO-xK2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -474,6 +474,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1PS-Fq-Ci5">
+                                <rect key="frame" x="139" y="15" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -491,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGt-nh-cjd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712" y="698"/>
+            <point key="canvasLocation" x="1711.5942028985507" y="697.76785714285711"/>
         </scene>
         <!--Sports-->
         <scene sceneID="Ajw-KF-1js">
@@ -516,7 +523,7 @@
     <resources>
         <image name="chelsea" width="384" height="384"/>
         <image name="facebook" width="512" height="512"/>
-        <image name="heart.fill" catalog="system" width="64" height="54"/>
+        <image name="heart.fill" catalog="system" width="64" height="58"/>
         <image name="imageSport" width="478" height="280"/>
         <image name="instagram" width="512" height="512"/>
         <image name="sportscourt.fill" catalog="system" width="64" height="40"/>

@@ -31,7 +31,7 @@ class CoreDataManger : CoreDataProtocol{
         favLeague.padge = padge
         do{
                    try context.save()
-            print("done in core data \(favLeague.league)")
+            print("done in core data \(String(describing: favLeague.league))")
                    getAllLeague()
                }
                catch{

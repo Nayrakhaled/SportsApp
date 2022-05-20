@@ -34,10 +34,14 @@ let context = (UIApplication.shared.delegate as! AppDelegate).persistentContaine
         self.favTableView.register(UINib(nibName: "FavouriteTableViewCell", bundle: nil), forCellReuseIdentifier: "cellFavourite")
         
     
-        presenter = CoreDataPresenter(db: CoreDataManger(context: context))
-        presenter.attachView(view: self)
-        presenter.getFavLeague()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            presenter = CoreDataPresenter(db: CoreDataManger(context: context))
+            presenter.attachView(view: self)
+
+           presenter.getFavLeague()
+       }
 }
 
 extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{

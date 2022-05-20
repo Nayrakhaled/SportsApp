@@ -33,7 +33,7 @@ class CoreDataManger : CoreDataProtocol{
         do{
                    try context.save()
             print("done in core data \(String(describing: favLeague.league))")
-                  // getAllLeague()
+                   getAllLeague()
                }
                catch{
                    

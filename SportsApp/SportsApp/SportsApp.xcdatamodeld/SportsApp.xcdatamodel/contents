@@ -6,8 +6,11 @@
         <attribute name="strYoutube" optional="YES" attributeType="String"/>
     </entity>
     <entity name="SavingLeague" representedClassName="SavingLeague" syncable="YES">
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="league" optional="YES" attributeType="String"/>
         <attribute name="padge" optional="YES" attributeType="String"/>
+        <attribute name="sportName" optional="YES" attributeType="String"/>
         <attribute name="youtube" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Star" representedClassName="Star" syncable="YES">
@@ -17,7 +20,7 @@
     </entity>
     <elements>
         <element name="FavLeague" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="SavingLeague" positionX="-36" positionY="45" width="128" height="133"/>
         <element name="Star" positionX="-54" positionY="18" width="128" height="88"/>
-        <element name="SavingLeague" positionX="-36" positionY="45" width="128" height="88"/>
     </elements>
 </model>

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CoreDataProtocol {
-    func addLeague (leauge :String , youtube :String ,padge :String)
-     func  getAllLeague () -> [SavingLeague]
+    func addLeague (leauge :String , youtube :String ,padge :String,id:String,country:String,strSport :String)
+    func  getAllLeague () -> [SavingLeague]
     func delete (league : SavingLeague)
 }

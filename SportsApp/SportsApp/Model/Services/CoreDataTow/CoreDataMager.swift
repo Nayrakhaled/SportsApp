@@ -10,10 +10,8 @@ import Foundation
 import CoreData
 
 class CoreDataManger : CoreDataProtocol{
-    
-  
    
-    
+ 
    static let sharedInstance = CoreDataManger(context: NSManagedObjectContext())
     var context: NSManagedObjectContext!
     var FavLeagues = [SavingLeague]()
@@ -23,16 +21,19 @@ class CoreDataManger : CoreDataProtocol{
         self.context = context
     }
     
-    func addLeague (leauge :String , youtube :String ,padge :String){
+     func addLeague (leauge :String , youtube :String ,padge :String,id:String,country:String,strSport :String){
         let favLeague = SavingLeague (context: context)
         
         favLeague.league = leauge
         favLeague.youtube = youtube
         favLeague.padge = padge
+        favLeague.id = id
+        favLeague.country = country
+        favLeague.sportName = strSport
         do{
                    try context.save()
             print("done in core data \(String(describing: favLeague.league))")
-                   getAllLeague()
+                  // getAllLeague()
                }
                catch{
                    

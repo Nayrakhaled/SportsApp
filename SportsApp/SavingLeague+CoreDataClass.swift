@@ -2,7 +2,7 @@
 //  SavingLeague+CoreDataClass.swift
 //  SportsApp
 //
-//  Created by Aya Abdelraouf on 5/19/22.
+//  Created by Aya Abdelraouf on 5/20/22.
 //  Copyright © 2022 NayraKhaled. All rights reserved.
 //
 //

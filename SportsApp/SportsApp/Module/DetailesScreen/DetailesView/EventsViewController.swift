@@ -41,6 +41,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
        
       //  let Fav = FavouriteLeague(context:context)
+     //   print("league name : \(league.strLeague)")
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -172,7 +173,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
        
         var coreData = CoreDataManger(context: context)
        
-        coreData.addLeague(leauge: league.strLeague ?? "", youtube: league.strYoutube ?? "", padge: league.strBadge ?? "")
+        coreData.addLeague(leauge: league.strLeague ?? "", youtube: league.strYoutube ?? "", padge: league.strBadge ?? "",id: league.idLeague ?? "",country: league.strCountry ?? "",strSport : league.strSport ?? "")
         
     }
     /*

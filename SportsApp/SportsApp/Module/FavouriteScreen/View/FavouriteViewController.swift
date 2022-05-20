@@ -17,9 +17,11 @@ protocol FavLeagueProtocol {
 class FavouriteViewController: UIViewController {
     
     var leagues = [League]()
-    var presenter : FavLeaguePresenterProtocol!
+    var leaguesFav = [SavingLeague]()
+    var presenter : CoreDataPresenterProtocol!
 
-
+let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     @IBOutlet weak var favTableView: UITableView!
     
     
@@ -31,7 +33,8 @@ class FavouriteViewController: UIViewController {
         
         self.favTableView.register(UINib(nibName: "FavouriteTableViewCell", bundle: nil), forCellReuseIdentifier: "cellFavourite")
         
-        presenter = FavLeaguePresenter(db: DBManager())
+    
+        presenter = CoreDataPresenter(db: CoreDataManger(context: context))
         presenter.attachView(view: self)
         presenter.getFavLeague()
     }
@@ -39,7 +42,7 @@ class FavouriteViewController: UIViewController {
 
 extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leagues.count
+        return leaguesFav.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -58,13 +61,13 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
         cell.layer.masksToBounds = false
         
         
-        cell.nameLeagueLabel.text =  leagues[indexPath.row].strLeague!
+        cell.nameLeagueLabel.text =  leaguesFav[indexPath.row].league!
                
-        cell.imageFavLeague.kf.setImage(with: URL(string: leagues[indexPath.row].strBadge!), placeholder: UIImage(named: ""))
+        cell.imageFavLeague.kf.setImage(with: URL(string: leaguesFav[indexPath.row].padge!), placeholder: UIImage(named: ""))
                
         cell.goToYoutube = {
             if Constants.checkConnection() != true{
-                let youTubeURl = URL(string: "https://" +  self.leagues[indexPath.row].strYoutube!)
+                let youTubeURl = URL(string: "https://" +  self.leaguesFav[indexPath.row].youtube!)
                
                 if UIApplication.shared.canOpenURL(youTubeURl!) {
                         UIApplication.shared.open(youTubeURl!)
@@ -81,6 +84,15 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
          if Constants.checkConnection() != true{
             let detailVC = storyboard?.instantiateViewController(withIdentifier: "event") as! EventsViewController
             //detailVC.league = leagues[indexPath.row]
+            let leaguge = League()
+            leaguge.idLeague = leaguesFav[indexPath.row].id
+            leaguge.strCountry = leaguesFav[indexPath.row].country
+            leaguge.strLeague = leaguesFav[indexPath.row].league
+            leaguge.strBadge = leaguesFav[indexPath.row].padge
+            leaguge.strYoutube = leaguesFav[indexPath.row].youtube
+            leaguge.strSport = leaguesFav[indexPath.row].sportName
+            detailVC.league = leaguge
+            
             detailVC.modalPresentationStyle = .fullScreen
             present(detailVC, animated: true, completion:nil)
         }else{
@@ -89,8 +101,10 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        presenter.deleteFavLeague(position: indexPath.row)
-        leagues.remove(at: indexPath.row)
+      //  delete
+      //  presenter.deleteFavLeague(position: indexPath.row)
+        presenter.deleteFavLeague(fav: leaguesFav[indexPath.row])
+        leaguesFav.remove(at: indexPath.row)
         favTableView.deleteRows(at: [indexPath], with: .automatic)
         favTableView.reloadData()
     }
@@ -108,6 +122,8 @@ extension FavouriteViewController : FavLeagueProtocol {
     func renderTableViewWithFav(fav: [SavingLeague]) {
         // array of SavingFav array = fav
       //  reload table
+        self.leaguesFav = fav
+        self.favTableView.reloadData()
     }
     
     func renderTableView(league: [League]) {

@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 class CoreDataManger : CoreDataProtocol{
+  
    
     
    static let sharedInstance = CoreDataManger(context: NSManagedObjectContext())
@@ -30,7 +31,7 @@ class CoreDataManger : CoreDataProtocol{
         do{
                    try context.save()
             print("done in core data \(favLeague.league)")
-                   getAllaTasks()
+                   getAllLeague()
                }
                catch{
                    
@@ -38,7 +39,7 @@ class CoreDataManger : CoreDataProtocol{
         
     }
     
-        func  getAllaTasks () -> [SavingLeague]{
+        func  getAllLeague () -> [SavingLeague]{
           do {
               
            FavLeagues =  try context.fetch(SavingLeague.fetchRequest())
@@ -57,7 +58,7 @@ class CoreDataManger : CoreDataProtocol{
           
           do{
               try context.save()
-              getAllaTasks()
+              getAllLeague()
 
                 }
               catch{

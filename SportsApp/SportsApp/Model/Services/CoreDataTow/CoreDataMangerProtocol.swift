@@ -10,6 +10,6 @@ import Foundation
 
 protocol CoreDataProtocol {
     func addLeague (leauge :String , youtube :String ,padge :String)
-     func  getAllaTasks () -> [SavingLeague]
+     func  getAllLeague () -> [SavingLeague]
     func delete (league : FavLeague)
 }

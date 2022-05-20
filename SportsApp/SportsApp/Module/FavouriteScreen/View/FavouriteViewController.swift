@@ -30,7 +30,7 @@ let context = (UIApplication.shared.delegate as! AppDelegate).persistentContaine
         
         self.favTableView.delegate = self
         self.favTableView.dataSource = self
-        
+        self.title = "Favourite"
         self.favTableView.register(UINib(nibName: "FavouriteTableViewCell", bundle: nil), forCellReuseIdentifier: "cellFavourite")
         
     

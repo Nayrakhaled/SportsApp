@@ -9,10 +9,6 @@
 import UIKit
 import CoreData
 class EventsViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate {
- 
-
-    
-    
   
     @IBOutlet var eventssTable: UITableView!
     
@@ -165,17 +161,17 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         self.present(alert, animated: true, completion: nil)
     }
   
-    @IBAction func backBtn(_ sender: UIButton) {
-        dismiss(animated: true)
-    }
+
+   @IBAction func favBtn(_ sender: Any) {
     
-    @IBAction func FavBtn(_ sender: UIButton) {
-       
-        var coreData = CoreDataManger(context: context)
-       
-        coreData.addLeague(leauge: league.strLeague ?? "", youtube: league.strYoutube ?? "", padge: league.strBadge ?? "",id: league.idLeague ?? "",country: league.strCountry ?? "",strSport : league.strSport ?? "")
-        
-    }
+    let coreData = CoreDataManger(context: context)
+         
+          coreData.addLeague(leauge: league.strLeague ?? "", youtube: league.strYoutube ?? "", padge: league.strBadge ?? "",id: league.idLeague ?? "",country: league.strCountry ?? "",strSport : league.strSport ?? "")
+   }
+   
+   @IBAction func backBtn(_ sender: Any) {
+       dismiss(animated: true, completion: nil)
+   }
     /*
     // MARK: - Navigation
 
@@ -185,7 +181,8 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
 }
 
 

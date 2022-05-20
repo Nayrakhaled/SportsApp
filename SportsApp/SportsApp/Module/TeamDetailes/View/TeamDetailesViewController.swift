@@ -11,7 +11,6 @@ import Kingfisher
 
 class TeamDetailesViewController: UIViewController {
 
-    @IBOutlet var backBtn: UIButton!
     
     @IBOutlet var backGroundImage: UIImageView!
     
@@ -68,12 +67,10 @@ class TeamDetailesViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-    @IBAction func backButton(_ sender: UIButton) {
-         dismiss(animated: true)
-        
-    }
     
+    @IBAction func backBtn(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     
     @IBAction func FaceBtn(_ sender: UIButton) {

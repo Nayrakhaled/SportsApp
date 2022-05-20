@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-
 class EventsViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate {
  
 
@@ -39,11 +38,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         eventssTable.delegate = self
         // Do any additional setup after loading the view.
        
-     
       //  let Fav = FavouriteLeague(context:context)
-        
-        
-        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -174,6 +169,9 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
     }
     
     @IBAction func FavBtn(_ sender: UIButton) {
+        var coreData = CoreDataManger(context: context)
+        coreData.addLeague(leauge: league.strLeague ?? "", youtube: league.strYoutube ?? "", padge: league.strBadge ?? "")
+        
     }
     /*
     // MARK: - Navigation

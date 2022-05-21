@@ -25,6 +25,7 @@
 		3F3DA93A28332A390024F9DF /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA93928332A390024F9DF /* Team.swift */; };
 		3F3DA93C28332E7E0024F9DF /* EventResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DA93B28332E7E0024F9DF /* EventResponse.swift */; };
 		3F44E01B2834873F000D57F5 /* SecondVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F44E01A2834873F000D57F5 /* SecondVCViewController.swift */; };
+		3F5E7D0928399F110026F3DB /* DetailesScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5E7D0828399F110026F3DB /* DetailesScreenPresenter.swift */; };
 		3F8F1E7F28317C3600C3AD1B /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F1E7E28317C3600C3AD1B /* Todo.swift */; };
 		3F8F1E8128317E8000C3AD1B /* NetworkServicesTow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F1E8028317E8000C3AD1B /* NetworkServicesTow.swift */; };
 		3F8F1E852831885700C3AD1B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F1E842831885700C3AD1B /* EventsViewController.swift */; };
@@ -96,6 +97,7 @@
 		3F3DA93928332A390024F9DF /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		3F3DA93B28332E7E0024F9DF /* EventResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventResponse.swift; sourceTree = "<group>"; };
 		3F44E01A2834873F000D57F5 /* SecondVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVCViewController.swift; sourceTree = "<group>"; };
+		3F5E7D0828399F110026F3DB /* DetailesScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailesScreenPresenter.swift; sourceTree = "<group>"; };
 		3F8F1E7E28317C3600C3AD1B /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		3F8F1E8028317E8000C3AD1B /* NetworkServicesTow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesTow.swift; sourceTree = "<group>"; };
 		3F8F1E842831885700C3AD1B /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		3F2169CA2830216D0094B778 /* DetailesScreen */ = {
 			isa = PBXGroup;
 			children = (
+				3F5E7D0728399EE40026F3DB /* Detailes */,
 				3F2169FC283025EB0094B778 /* DetailesView */,
 				3F2169D02830221D0094B778 /* ComingEvent */,
 				3F2169CF283022110094B778 /* LatestEvent */,
@@ -326,6 +329,14 @@
 				3F8F1E842831885700C3AD1B /* EventsViewController.swift */,
 			);
 			path = DetailesView;
+			sourceTree = "<group>";
+		};
+		3F5E7D0728399EE40026F3DB /* Detailes */ = {
+			isa = PBXGroup;
+			children = (
+				3F5E7D0828399F110026F3DB /* DetailesScreenPresenter.swift */,
+			);
+			path = Detailes;
 			sourceTree = "<group>";
 		};
 		3FD612AA2836BCC500D640DF /* TeamDetailes */ = {
@@ -750,6 +761,7 @@
 				B725D83C2832C78800D9C54E /* DBManager.swift in Sources */,
 				3F44E01B2834873F000D57F5 /* SecondVCViewController.swift in Sources */,
 				B7CB6F78282D4358000C25A0 /* Constants.swift in Sources */,
+				3F5E7D0928399F110026F3DB /* DetailesScreenPresenter.swift in Sources */,
 				3F2169F6283024A90094B778 /* TeamsCollectionViewCell.swift in Sources */,
 				B7425E31282C357B00B6B0BF /* SceneDelegate.swift in Sources */,
 				3F2169EA283024060094B778 /* ComingEventsCollectionViewCell.swift in Sources */,

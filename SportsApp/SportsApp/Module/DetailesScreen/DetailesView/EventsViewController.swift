@@ -20,6 +20,8 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
     //context CoreData
      let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    //presenter
+    var presenter :DetailesSccreenPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +38,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         eventssTable.delegate = self
         // Do any additional setup after loading the view.
        
-      //  let Fav = FavouriteLeague(context:context)
-     //   print("league name : \(league.strLeague)")
+    presenter = DetailesSccreenPresenter (db: CoreDataManger(context: context))
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -156,9 +157,16 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
 
    @IBAction func favBtn(_ sender: Any) {
     
-    let coreData = CoreDataManger(context: context)
-         
-          coreData.addLeague(leauge: league.strLeague ?? "", youtube: league.strYoutube ?? "", padge: league.strBadge ?? "",id: league.idLeague ?? "",country: league.strCountry ?? "",strSport : league.strSport ?? "")
+  // let favLeague = SavingLeague(context: context)
+    // favLeague.league = league.strLeague
+     //favLeague.id = league.idLeague
+     //favLeague.youtube = league.strYoutube
+     //favLeague.padge = league.strBadge
+     //favLeague.country = league.strCountry
+     //favLeague.sportName = league .strSport
+     
+    // presenter.addLeague(fav: favLeague)
+    presenter.insertLeauge(leauge: league.strLeague ?? "", youtube: league.strYoutube ?? "", padge: league.strBadge ?? "",id: league.idLeague ?? "",country: league.strCountry ?? "",strSport : league.strSport ?? "")
    }
    
    @IBAction func backBtn(_ sender: Any) {

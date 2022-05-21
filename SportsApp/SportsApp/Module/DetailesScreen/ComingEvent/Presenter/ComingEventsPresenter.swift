@@ -19,52 +19,63 @@ protocol ComingTableViewCell: class {
 
 protocol ComingoCellCollectionView {
     //func configTableCell (todo :[Todo]!)
-    func labelname (name :Int)
-}
+    func awayTeamName (name :String)
+     func homeTeamName (name :String)
+     func eventImage (image :String)}
 
 
 class ComingVCPresenter {
     
     private weak var view: ComingTableViewCell?
-    private let interactor = TodosInteractor(baseUrl: "https://jsonplaceholder.typicode.com/")
-    private var todos = [Todo]()
-    
-    init(view: ComingTableViewCell) {
-        self.view = view
-    }
-    
-    func viewDidLoad() {
-        getTodos()
-    }
-    
-    func getTodos(){
-        view?.showIndicator()
-        interactor.getTodos(endPoint: "todos", completionHandler: { [weak self] todos, error in
-            
-            print("Completion handler ")
-            
-            guard let self = self else { return }
-            self.view?.hideIndicator()
-            
-            if let error = error {
-                self.view?.showError()
-            } else {
-                guard let todos = todos else { return }
-                self.todos = todos
-                print("Completion handler success \(todos.count)")
-                self.view?.fetchingDataSuccess()
-            }
-        })
-    }
-    
-    func getTodosCount() -> Int {
-        return todos.count
-    }
-    
-    func configure(cell : ComingoCellCollectionView , index : Int) {
-        let todo = todos[index]
-        cell.labelname(name: todo.id)
+        private var service : NetworkManagerProtocol!
+       private var latestEvent = [Event]()
        
-    }
+       
+       
+       func attachView(view: ComingTableViewCell) {
+           self.view = view
+       }
+       init (service : NetworkManagerProtocol!){
+              self.service = service
+          }
+       
+      
+      
+       
+       func getUpcomingEvent (url: String, leaugeId: String){
+           
+              view?.showIndicator()
+              service.loadData(url: url, param: ["id": leaugeId], responseType: EventResponse.self) { (lastestEvent, error) in
+                  
+                  print("Completion handler ")
+                           
+                       self.view?.hideIndicator()
+                                
+                               if let error = error {
+                                    self.view?.showError()
+                                } else {
+                                   guard let latestEvent = lastestEvent else { return }
+                                    self.latestEvent = latestEvent.events
+                                    print("Completion handler success \(self.latestEvent.count)")
+                                    self.view?.fetchingDataSuccess()
+                                }
+                      
+                  }
+              }
+       
+       
+       func getUpComingEvents() -> Int {
+           return latestEvent.count
+       }
+       
+        func configure(cell : ComingoCellCollectionView , index : Int) {
+              let latestEvents = latestEvent[index]
+              cell.awayTeamName(name: latestEvents.strAwayTeam ?? "away")
+              cell.homeTeamName(name: latestEvents.strHomeTeam ?? "home")
+              
+           cell.eventImage(image: latestEvents.strThumb ?? "thumb.png")
+              
+             
+          }
     
 }

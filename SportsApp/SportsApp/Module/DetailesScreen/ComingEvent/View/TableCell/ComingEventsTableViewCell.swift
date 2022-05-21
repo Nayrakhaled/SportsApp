@@ -34,22 +34,33 @@ class ComingEventsTableViewCell: UITableViewCell,UICollectionViewDelegate,UIColl
     @IBOutlet var collection: UICollectionView!
     @IBOutlet var tableLabel: UILabel!
   
-    var presenter : ComingVCPresenter!
+    //presenter
+    var prenenter :ComingVCPresenter!
+    
+    
+    //id
+         
+     var id :String?
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        //comingCollection.reloadData()
+       
         collection.delegate = self
         collection.dataSource = self
         collection.register(ComingEventsCollectionViewCell.nib(), forCellWithReuseIdentifier: ComingEventsCollectionViewCell.ident)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        presenter = ComingVCPresenter(view: self)
-        presenter.viewDidLoad()
+         //presenter
+               prenenter = ComingVCPresenter (service: NetworkManager())
+               prenenter.attachView(view: self)
      
-  
     }
+    
+    func leagueId (id :String){
+              self.id = id
+              prenenter.getUpcomingEvent(url: Constants.LatestEvent, leaugeId:id)
+
+          }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -59,14 +70,13 @@ class ComingEventsTableViewCell: UITableViewCell,UICollectionViewDelegate,UIColl
     
   
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter.getTodosCount()
-       }
+        prenenter.getUpComingEvents()       }
        
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComingEventsCollectionViewCell.ident, for: indexPath) as! ComingEventsCollectionViewCell
         
-       // cell.configure(model: models[indexPath.row] )
-        presenter.configure(cell: cell, index: indexPath.row)
+          prenenter.configure(cell: cell, index: indexPath.row)
+      
         return cell
        }
     

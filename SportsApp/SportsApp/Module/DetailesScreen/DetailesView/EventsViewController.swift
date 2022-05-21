@@ -80,12 +80,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         
         
         
-        cellTow.layer.shadowColor = UIColor.black.cgColor
-               cellTow.layer.shadowOffset = CGSize(width: 3, height: 3)
-               cellTow.layer.shadowRadius = 4
-               cellTow.layer.shadowOpacity = 0.3
-               cellTow.layer.masksToBounds = false
-        
+       
         
         cellThree.layer.shadowColor = UIColor.black.cgColor
         cellThree.layer.shadowOffset = CGSize(width: 3, height: 3)
@@ -96,6 +91,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         // data
              
               cellThree.leagueId(id:league.idLeague ?? "k" )
+              cellTow.leagueId(id:league.idLeague ?? "")
               cell.SportNameAndSportCountry(sportName: league.strSport ?? "" , sportContury: league.strCountry ?? "" )
        
         switch indexPath.section {

@@ -34,7 +34,7 @@ class FavLeaguePresenter: FavLeaguePresenterProtocol{
     func getFavLeague() {
         let leagueArray = db.getAllLeague()
         DispatchQueue.main.async {
-           self.view.renderTableViewWithFav(fav: leagueArray)
+           self.view.renderTableView(fav: leagueArray)
         }
     }
         

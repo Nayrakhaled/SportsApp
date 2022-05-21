@@ -18,9 +18,9 @@ class FavouriteViewController: UIViewController {
     
     var leagues = [League]()
     var leaguesFav = [SavingLeague]()
-    var presenter : CoreDataPresenterProtocol!
+    var presenter : FavLeaguePresenterProtocol!
 
-let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var favTableView: UITableView!
     
@@ -30,17 +30,14 @@ let context = (UIApplication.shared.delegate as! AppDelegate).persistentContaine
         
         self.favTableView.delegate = self
         self.favTableView.dataSource = self
-        self.title = "Favourite"
         self.favTableView.register(UINib(nibName: "FavouriteTableViewCell", bundle: nil), forCellReuseIdentifier: "cellFavourite")
         
-    
+     presenter = FavLeaguePresenter(db: CoreDataManger(context: context))
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            presenter = CoreDataPresenter(db: CoreDataManger(context: context))
             presenter.attachView(view: self)
-
-           presenter.getFavLeague()
+            presenter.getFavLeague()
        }
 }
 

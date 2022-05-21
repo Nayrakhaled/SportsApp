@@ -20,9 +20,6 @@ class TeamDetailesViewController: UIViewController {
     
     @IBOutlet var teamImage: UIImageView!
     
-
-    
-    
     @IBOutlet var leagueLabel: UILabel!
     
     @IBOutlet var leagueContent: UILabel!

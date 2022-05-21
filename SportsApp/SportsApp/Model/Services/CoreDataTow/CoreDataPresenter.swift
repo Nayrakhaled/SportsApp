@@ -17,7 +17,7 @@ protocol CoreDataPresenterProtocol {
 
 class CoreDataPresenter :CoreDataPresenterProtocol
 {
-    var db : CoreDataProtocol!
+       var db : CoreDataProtocol!
        var view : FavLeagueProtocol!
 
        init(db: CoreDataProtocol) {

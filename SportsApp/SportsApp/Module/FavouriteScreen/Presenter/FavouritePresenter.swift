@@ -11,18 +11,18 @@ import CoreData
 
 protocol FavLeaguePresenterProtocol {
     
-    func getFavLeague()
-    func deleteFavLeague(position: Int)
+    func getFavLeague ()
+    func deleteFavLeague(fav: SavingLeague)
     func attachView(view: FavLeagueProtocol)
 }
 
 
 class FavLeaguePresenter: FavLeaguePresenterProtocol{
     
-    var db : DBManagerProtocol!
+    var db : CoreDataProtocol!
     var view : FavLeagueProtocol!
 
-    init(db: DBManagerProtocol) {
+    init(db: CoreDataProtocol) {
         self.db = db
     }
     
@@ -32,21 +32,14 @@ class FavLeaguePresenter: FavLeaguePresenterProtocol{
 
     
     func getFavLeague() {
-        let leagueArray = db.getFavLeague()
-        if leagueArray.count != 0{
-            DispatchQueue.main.async {
-                self.view.renderTableView(league: leagueArray)
-            }
-        }else{
-            
+        let leagueArray = db.getAllLeague()
+        DispatchQueue.main.async {
+           self.view.renderTableViewWithFav(fav: leagueArray)
         }
+    }
         
+    
+    func deleteFavLeague(fav: SavingLeague){
+        db.delete(league: fav)
     }
-    
-    func deleteFavLeague(position: Int) {
-        db.deleteFavLeague(position: position)
-
-    }
-    
-    
 }

@@ -125,10 +125,6 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
                default:
                    return cell
                }
-        
-        
-        return cell
-        
      }
     
     

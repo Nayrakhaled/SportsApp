@@ -29,7 +29,7 @@
 		3F8F1E8128317E8000C3AD1B /* NetworkServicesTow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F1E8028317E8000C3AD1B /* NetworkServicesTow.swift */; };
 		3F8F1E852831885700C3AD1B /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F1E842831885700C3AD1B /* EventsViewController.swift */; };
 		3FD612AE2836BD4500D640DF /* TeamDetailesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD612AD2836BD4500D640DF /* TeamDetailesViewController.swift */; };
-		3FD612F828371CA400D640DF /* CoreDataMager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD612F728371CA400D640DF /* CoreDataMager.swift */; };
+		3FD612F828371CA400D640DF /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD612F728371CA400D640DF /* CoreDataManager.swift */; };
 		3FD612FA2837327500D640DF /* CoreDataMangerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD612F92837327500D640DF /* CoreDataMangerProtocol.swift */; };
 		3FD612FF2837FEFF00D640DF /* CoreDataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD612FE2837FEFF00D640DF /* CoreDataPresenter.swift */; };
 		3FD61306283830C200D640DF /* SavingLeague+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD61304283830C200D640DF /* SavingLeague+CoreDataClass.swift */; };
@@ -100,7 +100,7 @@
 		3F8F1E8028317E8000C3AD1B /* NetworkServicesTow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicesTow.swift; sourceTree = "<group>"; };
 		3F8F1E842831885700C3AD1B /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		3FD612AD2836BD4500D640DF /* TeamDetailesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailesViewController.swift; sourceTree = "<group>"; };
-		3FD612F728371CA400D640DF /* CoreDataMager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMager.swift; sourceTree = "<group>"; };
+		3FD612F728371CA400D640DF /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3FD612F92837327500D640DF /* CoreDataMangerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMangerProtocol.swift; sourceTree = "<group>"; };
 		3FD612FE2837FEFF00D640DF /* CoreDataPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataPresenter.swift; sourceTree = "<group>"; };
 		3FD61304283830C200D640DF /* SavingLeague+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavingLeague+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -347,7 +347,7 @@
 		3FD612F628371C5F00D640DF /* CoreDataTow */ = {
 			isa = PBXGroup;
 			children = (
-				3FD612F728371CA400D640DF /* CoreDataMager.swift */,
+				3FD612F728371CA400D640DF /* CoreDataManager.swift */,
 				3FD612F92837327500D640DF /* CoreDataMangerProtocol.swift */,
 				3FD612FE2837FEFF00D640DF /* CoreDataPresenter.swift */,
 			);
@@ -761,7 +761,7 @@
 				3F8F1E8128317E8000C3AD1B /* NetworkServicesTow.swift in Sources */,
 				3F2169DC2830233C0094B778 /* TeamsPresenter.swift in Sources */,
 				3F2169DA283023250094B778 /* LatestEventsPresenter.swift in Sources */,
-				3FD612F828371CA400D640DF /* CoreDataMager.swift in Sources */,
+				3FD612F828371CA400D640DF /* CoreDataManager.swift in Sources */,
 				3F8F1E7F28317C3600C3AD1B /* Todo.swift in Sources */,
 				B796AD2D282E89AD00314198 /* HomePresenter.swift in Sources */,
 				3F2169EE283024250094B778 /* LatestEventsCollectionViewCell.swift in Sources */,

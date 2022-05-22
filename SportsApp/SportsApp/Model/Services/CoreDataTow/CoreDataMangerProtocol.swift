@@ -12,4 +12,6 @@ protocol CoreDataProtocol {
     func addLeague (leauge :String , youtube :String ,padge :String,id:String,country:String,strSport :String)
     func  getAllLeague () -> [SavingLeague]
     func delete (league : SavingLeague)
+    func checkIfLeagueInFavById (id :String) -> Bool
+    func getDeletedLeague (id :String)-> SavingLeague
 }

@@ -11,6 +11,10 @@ import CoreData
 
 class CoreDataManger : CoreDataProtocol{
    
+    
+  
+    
+   
  
    static let sharedInstance = CoreDataManger(context: NSManagedObjectContext())
     var context: NSManagedObjectContext!
@@ -68,6 +72,39 @@ class CoreDataManger : CoreDataProtocol{
           }
           
       }
+    func checkIfLeagueInFavById (id :String) -> Bool {
+        
+        let leagues = getAllLeague()
+        for league in leagues {
+            if league.id == id {
+                print("league deleted from list and id id : \(id)")
+                return true
+            }
+           
+            
+        }
+        print(" this league in not there")
+        return false
+    }
+    
+    func getDeletedLeague (id :String)-> SavingLeague{
+        
+        var deletedLeague : SavingLeague!
+        let leagues = getAllLeague()
+
+        for league in leagues {
+            if league.id == id{
+                deletedLeague = league
+            }
+            
+        }
+        return deletedLeague
+    }
+
+    
+    
+    
+    
 
     
     

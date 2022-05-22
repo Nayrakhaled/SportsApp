@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VFK-Kw-jqf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VFK-Kw-jqf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -156,9 +156,9 @@
                                                 <action selector="backBtn:" destination="Kuo-KV-f2s" id="RcK-GF-4Yr"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="tQg-q6-v4c">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="tQg-q6-v4c">
                                             <connections>
-                                                <action selector="favBtn:" destination="Kuo-KV-f2s" id="EgR-wF-iQz"/>
+                                                <action selector="favButton:" destination="Kuo-KV-f2s" id="AVi-a7-USs"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -499,10 +499,10 @@
     </scenes>
     <resources>
         <image name="chelsea" width="384" height="384"/>
-        <image name="chevron.left" catalog="system" width="46" height="64"/>
+        <image name="chevron.left" catalog="system" width="48" height="64"/>
         <image name="facebook" width="512" height="512"/>
-        <image name="heart" catalog="system" width="64" height="58"/>
-        <image name="heart.fill" catalog="system" width="64" height="58"/>
+        <image name="heart" catalog="system" width="64" height="54"/>
+        <image name="heart.fill" catalog="system" width="64" height="54"/>
         <image name="imageSport" width="478" height="280"/>
         <image name="instagram" width="512" height="512"/>
         <image name="sportscourt.fill" catalog="system" width="64" height="40"/>

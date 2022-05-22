@@ -11,6 +11,7 @@ import CoreData
 class EventsViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate {
   
     @IBOutlet var eventssTable: UITableView!
+    var isFavourite = false
     
      var league  = League()
        let id = "4328"
@@ -39,6 +40,9 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
        
     presenter = DetailesSccreenPresenter (db: CoreDataManger(context: context))
+        let coreData = CoreDataManger(context: context)
+        
+        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -154,7 +158,6 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         self.present(alert, animated: true, completion: nil)
     }
   
-
    @IBAction func favBtn(_ sender: Any) {
     
   // let favLeague = SavingLeague(context: context)
@@ -166,12 +169,61 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
      //favLeague.sportName = league .strSport
      
     // presenter.addLeague(fav: favLeague)
-    presenter.insertLeauge(leauge: league.strLeague ?? "", youtube: league.strYoutube ?? "", padge: league.strBadge ?? "",id: league.idLeague ?? "",country: league.strCountry ?? "",strSport : league.strSport ?? "")
+   
    }
+    
+    
+    @IBAction func favButton(_ sender: UIBarButtonItem) {
+        let coreData = CoreDataManger(context: context)
+
+        
+        isFavourite = !isFavourite
+        if isFavourite == true {
+               presenter.insertLeauge(leauge: league.strLeague ?? "", youtube: league.strYoutube ?? "", padge: league.strBadge ?? "",id: league.idLeague ?? "",country: league.strCountry ?? "",strSport : league.strSport ?? "")
+              sender.setBackgroundImage( UIImage(systemName:"heart.fill"), for: .normal, barMetrics:.default)
+        }
+        else{
+            sender.setBackgroundImage( UIImage(systemName:"heart"), for: .normal, barMetrics: .default)
+            let isThere = coreData.checkIfLeagueInFavById(id: league.idLeague ?? "" )
+            if isThere == true {
+                let deletedleague =  coreData.getDeletedLeague(id: league.idLeague ?? "")
+                coreData.delete(league: deletedleague)
+            }else{
+                print("there is no leaguge by this id ")
+            }
+            
+        }
+        
+    
+           
+           
+        
+        
+    }
+    
+    
    
    @IBAction func backBtn(_ sender: Any) {
        dismiss(animated: true, completion: nil)
    }
+    
+   // var checked = false
+
+    //@IBAction func tick(sender: UIButton) {
+
+      //  if checked {
+       //     sender.setImage( UIImage(named:"Unchecked.png"), forState: .Normal)
+       //     checked = false
+      //  } else {
+      //      sender.setImage(UIImage(named:"Checked.png"), forState: .Normal)
+      //      checked = true
+      //  }
+   // }
+    
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 

@@ -16,21 +16,23 @@ class Constants{
     static let ALLLEAGUES = "search_all_leagues.php"
     static let AllTeams = "search_all_teams.php"
     static let LatestEvent = "eventsseason.php"
+    static var flag: Bool!
     
-    static func checkConnection() -> Bool{
+    static func checkConnection(){
         let monitor = NWPathMonitor()
-        var flag: Bool = false
 
         monitor.pathUpdateHandler = { pathUpdateHandler in
             if pathUpdateHandler.status == .satisfied{
                 flag = true
+                print(flag!)
             }else{
                 flag = false
+                print(flag!)
             }
         }
         let queue = DispatchQueue(label: "InternetConnectionMonitor")
         monitor.start(queue: queue)
-        return flag
+       
     }
     
     

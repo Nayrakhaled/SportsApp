@@ -15,7 +15,7 @@ class LeaguesTableViewCell: UITableViewCell {
     @IBOutlet weak var leagueNameLabel: UILabel!
     
     @IBOutlet weak var imageLeague: UIImageView!
-    
+    @IBOutlet weak var myView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

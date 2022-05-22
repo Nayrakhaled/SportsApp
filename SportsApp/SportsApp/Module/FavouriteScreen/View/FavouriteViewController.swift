@@ -46,7 +46,8 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-           return UIScreen.main.bounds.height/10
+         //  return UIScreen.main.bounds.height/10
+        return 120
        }
     
     
@@ -54,21 +55,29 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = favTableView.dequeueReusableCell(withIdentifier: "cellFavourite", for: indexPath) as! FavouriteTableViewCell
         
             
-        cell.layer.shadowColor = UIColor.black.cgColor
+      cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOffset = CGSize(width: 3, height: 3)
         cell.layer.shadowRadius = 4
         cell.layer.shadowOpacity = 0.3
         cell.layer.masksToBounds = false
         
+        cell.myView.layer.cornerRadius = cell.imageFavLeague.frame.height/3
+        cell.myView.layer.borderColor = UIColor.black.cgColor
         
         cell.nameLeagueLabel.text =  leaguesFav[indexPath.row].league!
                
+       cell.imageFavLeague.layer.borderWidth = 1
+        cell.imageFavLeague.layer.masksToBounds = false
+        cell.imageFavLeague.layer.borderColor = UIColor.black.cgColor
+        cell.imageFavLeague.layer.cornerRadius = cell.imageFavLeague.frame.height/2
+        cell.imageFavLeague.clipsToBounds = true
+        
         cell.imageFavLeague.kf.setImage(with: URL(string: leaguesFav[indexPath.row].padge!), placeholder: UIImage(named: ""))
                
         cell.goToYoutube = {
-            if Constants.checkConnection() != true{
+            if Constants.flag == true{
                 let youTubeURl = URL(string: "https://" +  self.leaguesFav[indexPath.row].youtube!)
-               
+
                 if UIApplication.shared.canOpenURL(youTubeURl!) {
                         UIApplication.shared.open(youTubeURl!)
                     }
@@ -81,7 +90,7 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         if Constants.checkConnection() != true{
+         if Constants.flag == true{
             let detailVC = storyboard?.instantiateViewController(withIdentifier: "event") as! EventsViewController
             //detailVC.league = leagues[indexPath.row]
             let leaguge = League()

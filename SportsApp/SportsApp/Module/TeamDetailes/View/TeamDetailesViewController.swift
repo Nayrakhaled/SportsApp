@@ -72,9 +72,9 @@ class TeamDetailesViewController: UIViewController {
     
     @IBAction func FaceBtn(_ sender: UIButton) {
         
-        if Constants.checkConnection() != true{
+        if Constants.flag == true{
                       let youTubeURl = URL(string: "https://" +  self.teamDetailes.strFacebook!)
-              
+
                       if UIApplication.shared.canOpenURL(youTubeURl!) {
                           UIApplication.shared.open(youTubeURl!)
                       }
@@ -85,9 +85,9 @@ class TeamDetailesViewController: UIViewController {
     
     
     @IBAction func tweitterBtn(_ sender: UIButton) {
-        if Constants.checkConnection() != true{
+        if Constants.flag == true{
             let youTubeURl = URL(string: "https://" +  (self.teamDetailes.strTwitter ?? "" ))
-              
+
                       if UIApplication.shared.canOpenURL(youTubeURl!) {
                           UIApplication.shared.open(youTubeURl!)
                       }
@@ -98,7 +98,7 @@ class TeamDetailesViewController: UIViewController {
     
     
     @IBAction func instgramBtn(_ sender: Any) {
-        if Constants.checkConnection() != true{
+        if Constants.flag == true{
             let youTubeURl = URL(string: "https://" +  self.teamDetailes.strInstagram!)
               
                       if UIApplication.shared.canOpenURL(youTubeURl!) {

@@ -35,8 +35,14 @@ class LeaguesViewController: UIViewController {
         presenter = LeaguesPresenter(NWService: NetworkManager())
                
         presenter.attachView(view: self)
+        
+        
                      
-        presenter.getLeagues(url: Constants.ALLLEAGUES, sportName: sportName!)
+        if Constants.flag == true {
+             presenter.getLeagues(url: Constants.ALLLEAGUES, sportName: sportName!)
+        }else{
+            ShowAlert()
+        }
         
     }
     
@@ -60,6 +66,9 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.imageLeague.kf.setImage(with: URL(string: leagues[indexPath.row].strBadge!), placeholder: UIImage(named: "car.png"))
         
+        cell.myView.layer.cornerRadius = cell.imageLeague.frame.height/3
+        cell.myView.layer.borderColor = UIColor.black.cgColor
+        
         cell.imageLeague.layer.borderWidth = 1
         cell.imageLeague.layer.masksToBounds = false
         cell.imageLeague.layer.borderColor = UIColor.black.cgColor
@@ -67,7 +76,7 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource{
         cell.imageLeague.clipsToBounds = true
         
         cell.goToYoutube = {
-            if Constants.checkConnection() != true{
+            if Constants.flag == true{
                 let youTubeURl = URL(string: "https://" +  self.leagues[indexPath.row].strYoutube!)
         
                 if UIApplication.shared.canOpenURL(youTubeURl!) {
@@ -85,7 +94,7 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         if Constants.checkConnection() != true{
+         if Constants.flag == true{
            let detailVC = storyboard?.instantiateViewController(withIdentifier: "event") as! EventsViewController
             detailVC.league = leagues[indexPath.row]
             detailVC.modalPresentationStyle = .fullScreen
@@ -96,7 +105,8 @@ extension LeaguesViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UIScreen.main.bounds.height/10
+       // return UIScreen.main.bounds.height/10
+        return 120
     }
     
     func ShowAlert(){

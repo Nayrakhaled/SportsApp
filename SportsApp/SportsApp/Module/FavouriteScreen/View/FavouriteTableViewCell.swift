@@ -14,6 +14,7 @@ class FavouriteTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLeagueLabel: UILabel!
     @IBOutlet weak var imageFavLeague: UIImageView!
+     @IBOutlet weak var myView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

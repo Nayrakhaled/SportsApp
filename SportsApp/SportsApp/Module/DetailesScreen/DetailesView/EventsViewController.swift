@@ -114,7 +114,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
                      
        
                 
-                if Constants.checkConnection() != true{
+                if Constants.flag == true{
                   cell.didSelectRow = { data in
              
             
@@ -157,20 +157,6 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         alert.addAction(okBtn)
         self.present(alert, animated: true, completion: nil)
     }
-  
-   @IBAction func favBtn(_ sender: Any) {
-    
-  // let favLeague = SavingLeague(context: context)
-    // favLeague.league = league.strLeague
-     //favLeague.id = league.idLeague
-     //favLeague.youtube = league.strYoutube
-     //favLeague.padge = league.strBadge
-     //favLeague.country = league.strCountry
-     //favLeague.sportName = league .strSport
-     
-    // presenter.addLeague(fav: favLeague)
-   
-   }
     
     
     @IBAction func favButton(_ sender: UIBarButtonItem) {

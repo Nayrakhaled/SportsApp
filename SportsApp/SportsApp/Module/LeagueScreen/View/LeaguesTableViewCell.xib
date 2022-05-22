@@ -9,53 +9,68 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellLeagues" id="KGk-i7-Jjw" customClass="LeaguesTableViewCell" customModule="SportsApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellLeagues" rowHeight="100" id="KGk-i7-Jjw" customClass="LeaguesTableViewCell" customModule="SportsApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-jN-BXj">
-                        <rect key="frame" x="0.0" y="0.0" width="57" height="44"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d02-9Q-fFt">
-                        <rect key="frame" x="62" y="0.0" width="176" height="44"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNt-kN-QYW">
-                        <rect key="frame" x="291" y="0.0" width="24" height="44"/>
-                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <state key="normal" image="play.rectangle.fill" catalog="system"/>
-                        <connections>
-                            <action selector="btnYoutube:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="foo-PJ-bo2"/>
-                        </connections>
-                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nC-Ml-YE4">
+                        <rect key="frame" x="5" y="5" width="310" height="90"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jCg-jN-BXj">
+                                <rect key="frame" x="10" y="11" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="EqB-Ht-9Kw"/>
+                                    <constraint firstAttribute="height" constant="80" id="ZFb-d1-q9Q"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d02-9Q-fFt">
+                                <rect key="frame" x="100" y="32" width="170" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="o0n-nq-8Fg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNt-kN-QYW">
+                                <rect key="frame" x="278" y="20" width="24" height="44"/>
+                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="play.rectangle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="btnYoutube:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="foo-PJ-bo2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="placeholderTextColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="d02-9Q-fFt" firstAttribute="leading" secondItem="jCg-jN-BXj" secondAttribute="trailing" constant="10" id="ASo-jx-DVq"/>
+                            <constraint firstItem="jCg-jN-BXj" firstAttribute="top" secondItem="2nC-Ml-YE4" secondAttribute="top" constant="11" id="GuF-B4-lfG"/>
+                            <constraint firstItem="jCg-jN-BXj" firstAttribute="leading" secondItem="2nC-Ml-YE4" secondAttribute="leading" constant="10" id="TFG-XW-pYW"/>
+                            <constraint firstItem="d02-9Q-fFt" firstAttribute="baseline" secondItem="qNt-kN-QYW" secondAttribute="baseline" id="YsQ-1F-AbF"/>
+                            <constraint firstItem="d02-9Q-fFt" firstAttribute="top" secondItem="2nC-Ml-YE4" secondAttribute="top" constant="32" id="cRB-pO-00Q"/>
+                            <constraint firstItem="d02-9Q-fFt" firstAttribute="baseline" secondItem="qNt-kN-QYW" secondAttribute="firstBaseline" id="fBk-1u-tw3"/>
+                            <constraint firstItem="qNt-kN-QYW" firstAttribute="leading" secondItem="d02-9Q-fFt" secondAttribute="trailing" constant="8" symbolic="YES" id="wGd-A8-r9n"/>
+                            <constraint firstItem="qNt-kN-QYW" firstAttribute="top" secondItem="2nC-Ml-YE4" secondAttribute="top" constant="20" id="xo3-w6-u5S"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="qNt-kN-QYW" secondAttribute="bottom" id="AaQ-Rt-7gO"/>
-                    <constraint firstAttribute="bottom" secondItem="jCg-jN-BXj" secondAttribute="bottom" id="C6X-Yf-hP7"/>
-                    <constraint firstItem="jCg-jN-BXj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KU0-zv-1TY"/>
-                    <constraint firstAttribute="trailing" secondItem="qNt-kN-QYW" secondAttribute="trailing" constant="5" id="LwJ-Qb-VJh"/>
-                    <constraint firstItem="d02-9Q-fFt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MY8-4F-oxV"/>
-                    <constraint firstItem="jCg-jN-BXj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ser-iY-MUg"/>
-                    <constraint firstItem="d02-9Q-fFt" firstAttribute="leading" secondItem="jCg-jN-BXj" secondAttribute="trailing" constant="5" id="Yui-vQ-mEZ"/>
-                    <constraint firstAttribute="bottom" secondItem="d02-9Q-fFt" secondAttribute="bottom" id="fF2-N0-D9E"/>
-                    <constraint firstItem="qNt-kN-QYW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qzp-0k-097"/>
+                    <constraint firstAttribute="bottom" secondItem="2nC-Ml-YE4" secondAttribute="bottom" constant="5" id="Cg5-cD-ckV"/>
+                    <constraint firstItem="2nC-Ml-YE4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="W5V-FU-1zx"/>
+                    <constraint firstItem="2nC-Ml-YE4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="iiC-gR-j6w"/>
+                    <constraint firstAttribute="trailing" secondItem="2nC-Ml-YE4" secondAttribute="trailing" constant="5" id="ncJ-8w-ieC"/>
                 </constraints>
             </tableViewCellContentView>
-            <constraints>
-                <constraint firstItem="jCg-jN-BXj" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="height" multiplier="1.3" id="gaJ-mf-6Al"/>
-                <constraint firstItem="d02-9Q-fFt" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="height" multiplier="4" id="iIe-k4-FSk"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imageLeague" destination="jCg-jN-BXj" id="j0k-e7-beP"/>
                 <outlet property="leagueNameLabel" destination="d02-9Q-fFt" id="STE-AQ-HGT"/>
+                <outlet property="myView" destination="2nC-Ml-YE4" id="iuF-ae-s2l"/>
             </connections>
-            <point key="canvasLocation" x="-72.463768115942031" y="96.428571428571431"/>
+            <point key="canvasLocation" x="-72.463768115942031" y="95.758928571428569"/>
         </tableViewCell>
     </objects>
     <resources>

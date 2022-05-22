@@ -174,7 +174,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
     
     
     @IBAction func favButton(_ sender: UIBarButtonItem) {
-        let coreData = CoreDataManger(context: context)
+      //  let coreData = CoreDataManger(context: context)
 
         
         isFavourite = !isFavourite
@@ -183,14 +183,16 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
               sender.setBackgroundImage( UIImage(systemName:"heart.fill"), for: .normal, barMetrics:.default)
         }
         else{
+            presenter.deleteFuncById(idLeague: league.idLeague ?? "")
+          
             sender.setBackgroundImage( UIImage(systemName:"heart"), for: .normal, barMetrics: .default)
-            let isThere = coreData.checkIfLeagueInFavById(id: league.idLeague ?? "" )
-            if isThere == true {
-                let deletedleague =  coreData.getDeletedLeague(id: league.idLeague ?? "")
-                coreData.delete(league: deletedleague)
-            }else{
-                print("there is no leaguge by this id ")
-            }
+           // let isThere = coreData.checkIfLeagueInFavById(id: league.idLeague ?? "" )
+            //if isThere == true {
+              //  let deletedleague =  coreData.getDeletedLeague(id: league.idLeague ?? "")
+                //coreData.delete(league: deletedleague)
+            //}else{
+              //  print("there is no leaguge by this id ")
+            //}
             
         }
         

@@ -53,7 +53,8 @@ class LatestEventsCollectionViewCell: UICollectionViewCell,LatestCellCollectionV
        }
        
        func eventName(name: String) {
-        eventName.text = name
+       // eventName.text = name
+        print(name)
        }
 
 }

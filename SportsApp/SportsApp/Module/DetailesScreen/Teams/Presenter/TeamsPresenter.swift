@@ -8,24 +8,6 @@
 
 import Foundation
 
-
-protocol TeamsViewCell: class {
-    func showIndicator()
-    func hideIndicator()
-    func fetchingDataSuccess()
-    func showError()
-    func configTableCell(Team:[Team])
-    
-}
-
-protocol TeamsCellCollectionView {
-    //func configTableCell (todo :[Todo]!)
-    func labelname (name :String)
-    func teamImage (image : String)
-}
-
-
-
 class TeamsVCPresenter {
     
     private weak var view: TeamsViewCell?

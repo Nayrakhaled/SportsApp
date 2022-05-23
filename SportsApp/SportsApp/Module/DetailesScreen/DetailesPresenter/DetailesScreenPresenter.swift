@@ -7,31 +7,10 @@
 //
 
 import Foundation
-
 import CoreData
-
-protocol detailesScreenViewProtocol {
-    func print()
-}
-
-protocol DetailesScreenPresenterProtocol {
-    
-    func insertLeauge (leauge :String , youtube :String ,padge :String,id:String,country:String,strSport :String)
-    func deleteFavLeague(fav: SavingLeague)
-    func attachView(view: detailesScreenViewProtocol)
-    func deleteFuncById (idLeague:String)
-  //  func addLeague (fav :SavingLeague)
-}
-
 
 class DetailesSccreenPresenter: DetailesScreenPresenterProtocol {
    
-    
-  
- 
-    
-  
-    
     var db : CoreDataProtocol!
     var view : detailesScreenViewProtocol!
 
@@ -42,9 +21,7 @@ class DetailesSccreenPresenter: DetailesScreenPresenterProtocol {
     func attachView(view: detailesScreenViewProtocol) {
         self.view = view
     }
-
-
-        
+  
     
     func deleteFavLeague(fav: SavingLeague){
         db.delete(league: fav)
@@ -54,10 +31,7 @@ class DetailesSccreenPresenter: DetailesScreenPresenterProtocol {
         
         db.addLeague(leauge: leauge, youtube: youtube, padge: padge, id: id, country: country, strSport: strSport)
      }
-     
-   // func addLeague(fav: SavingLeague) {
-     //   db.insertLeaguee(favLeague: fav)
-      //}
+    
     func deleteFuncById (idLeague:String){
       let thereIs =  db.checkIfLeagueInFavById(id: idLeague)
         if thereIs == true {

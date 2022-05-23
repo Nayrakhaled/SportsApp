@@ -48,7 +48,7 @@ class LatestEventsCollectionViewCell: UICollectionViewCell,LatestCellCollectionV
      }
      
      func eventImage(image: String) {
-        eventImage.kf.setImage(with: URL(string:image), placeholder: UIImage(named: "car.png"))
+        eventImage.kf.setImage(with: URL(string:image), placeholder: UIImage(named: "imageSport"))
 
        }
        

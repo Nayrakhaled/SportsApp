@@ -8,23 +8,6 @@
 
 import Foundation
 
-
-
-protocol LatestViewCell: class {
-    func showIndicator()
-    func hideIndicator()
-    func fetchingDataSuccess()
-    func showError()
-}
-
-protocol LatestCellCollectionView {
-    func awayTeamName (name :String)
-    func homeTeamName (name :String)
-    func resultLabel (name :String)
-    func eventImage (image :String)
-    func eventName (name :String)
-}
-
 class LatestVCPresenter {
     
     private weak var view: LatestViewCell?

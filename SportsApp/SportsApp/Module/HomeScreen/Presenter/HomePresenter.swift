@@ -8,11 +8,6 @@
 
 import Foundation
 
-protocol HomePresenterProtocol{
-    func getHomeSports(url: String)
-    func attachView(view: HomeProtocol)
-}
-
 class HomePresenter: HomePresenterProtocol {
     
     var NWService : NetworkManagerProtocol! // service

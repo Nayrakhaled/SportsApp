@@ -11,15 +11,9 @@ import CoreData
 
 class CoreDataManger : CoreDataProtocol{
    
-    
-  
-    
-   
- 
    static let sharedInstance = CoreDataManger(context: NSManagedObjectContext())
     var context: NSManagedObjectContext!
     var FavLeagues = [SavingLeague]()
-  
     
     init(context:NSManagedObjectContext){
         self.context = context
@@ -37,7 +31,7 @@ class CoreDataManger : CoreDataProtocol{
         do{
                    try context.save()
             print("done in core data \(String(describing: favLeague.league))")
-                   getAllLeague()
+                _ = getAllLeague()
                }
                catch{
                    
@@ -64,7 +58,7 @@ class CoreDataManger : CoreDataProtocol{
           
           do{
               try context.save()
-              getAllLeague()
+              _ = getAllLeague()
 
                 }
               catch{

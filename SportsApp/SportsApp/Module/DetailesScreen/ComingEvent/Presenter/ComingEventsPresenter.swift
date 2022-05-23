@@ -8,22 +8,6 @@
 
 import Foundation
 
-
-
-protocol ComingTableViewCell: class {
-    func showIndicator()
-    func hideIndicator()
-    func fetchingDataSuccess()
-    func showError()
-}
-
-protocol ComingoCellCollectionView {
-    //func configTableCell (todo :[Todo]!)
-    func awayTeamName (name :String)
-     func homeTeamName (name :String)
-     func eventImage (image :String)}
-
-
 class ComingVCPresenter {
     
     private weak var view: ComingTableViewCell?
@@ -38,10 +22,7 @@ class ComingVCPresenter {
        init (service : NetworkManagerProtocol!){
               self.service = service
           }
-       
-      
-      
-       
+    
        func getUpcomingEvent (url: String, leaugeId: String){
            
               view?.showIndicator()
@@ -58,8 +39,7 @@ class ComingVCPresenter {
                                     self.latestEvent = latestEvent.events
                                     print("Completion handler success \(self.latestEvent.count)")
                                     self.view?.fetchingDataSuccess()
-                                }
-                      
+                }
                   }
               }
        

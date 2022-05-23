@@ -29,7 +29,7 @@ class TeamsCollectionViewCell: UICollectionViewCell ,TeamsCellCollectionView{
     
     //presenter function
     func teamImage(image: String) {
-           teamImage.kf.setImage(with: URL(string:image), placeholder: UIImage(named: "car.png"))
+           teamImage.kf.setImage(with: URL(string:image), placeholder: UIImage(named: "imageSport"))
        }
        
     func labelname(name: String) {

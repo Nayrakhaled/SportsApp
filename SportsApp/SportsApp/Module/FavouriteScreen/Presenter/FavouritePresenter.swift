@@ -9,14 +9,6 @@
 import Foundation
 import CoreData
 
-protocol FavLeaguePresenterProtocol {
-    
-    func getFavLeague ()
-    func deleteFavLeague(fav: SavingLeague)
-    func attachView(view: FavLeagueProtocol)
-}
-
-
 class FavLeaguePresenter: FavLeaguePresenterProtocol{
     
     var db : CoreDataProtocol!

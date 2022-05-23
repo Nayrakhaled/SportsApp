@@ -33,19 +33,17 @@ class LeaguesViewController: UIViewController {
         self.leaguesTableView.register(UINib(nibName: "LeaguesTableViewCell", bundle: nil), forCellReuseIdentifier: "cellLeagues")
         
         presenter = LeaguesPresenter(NWService: NetworkManager())
-               
         presenter.attachView(view: self)
-        
-        
-                     
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
         if Constants.flag == true {
-             presenter.getLeagues(url: Constants.ALLLEAGUES, sportName: sportName!)
+                    presenter.getLeagues(url: Constants.ALLLEAGUES, sportName: sportName!)
         }else{
             ShowAlert()
         }
-        
     }
-    
 }
 
 

@@ -9,10 +9,6 @@
 import UIKit
 import CoreData
 
-protocol FavLeagueProtocol {
-    func renderTableView(fav :[SavingLeague])
-}
-
 class FavouriteViewController: UIViewController {
     
     var leagues = [League]()
@@ -55,7 +51,7 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = favTableView.dequeueReusableCell(withIdentifier: "cellFavourite", for: indexPath) as! FavouriteTableViewCell
         
             
-      cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOffset = CGSize(width: 3, height: 3)
         cell.layer.shadowRadius = 4
         cell.layer.shadowOpacity = 0.3
@@ -66,7 +62,7 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.nameLeagueLabel.text =  leaguesFav[indexPath.row].league!
                
-       cell.imageFavLeague.layer.borderWidth = 1
+        cell.imageFavLeague.layer.borderWidth = 1
         cell.imageFavLeague.layer.masksToBounds = false
         cell.imageFavLeague.layer.borderColor = UIColor.black.cgColor
         cell.imageFavLeague.layer.cornerRadius = cell.imageFavLeague.frame.height/2
@@ -92,7 +88,6 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
          if Constants.flag == true{
             let detailVC = storyboard?.instantiateViewController(withIdentifier: "event") as! EventsViewController
-            //detailVC.league = leagues[indexPath.row]
             let leaguge = League()
             leaguge.idLeague = leaguesFav[indexPath.row].id
             leaguge.strCountry = leaguesFav[indexPath.row].country
@@ -110,8 +105,6 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-      //  delete
-      //  presenter.deleteFavLeague(position: indexPath.row)
         presenter.deleteFavLeague(fav: leaguesFav[indexPath.row])
         leaguesFav.remove(at: indexPath.row)
         favTableView.deleteRows(at: [indexPath], with: .automatic)

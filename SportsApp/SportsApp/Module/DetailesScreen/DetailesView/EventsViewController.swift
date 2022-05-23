@@ -40,7 +40,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
        
     presenter = DetailesSccreenPresenter (db: CoreDataManger(context: context))
-        let coreData = CoreDataManger(context: context)
+        _ = CoreDataManger(context: context)
         
         
     }
@@ -52,8 +52,6 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
          var rowCount = 0
                 if section == 0 {
                     rowCount = 1
-                    
-                    
                 }
                 if section == 1 {
                     rowCount = 1
@@ -61,7 +59,6 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
                if section == 2 {
                     rowCount = 1
         }
-              
                 return rowCount
      }
     
@@ -83,10 +80,6 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
                cell.layer.shadowOpacity = 0.3
                cell.layer.masksToBounds = false
         
-        
-        
-       
-        
         cellThree.layer.shadowColor = UIColor.black.cgColor
         cellThree.layer.shadowOffset = CGSize(width: 3, height: 3)
         cellThree.layer.shadowRadius = 4
@@ -101,29 +94,21 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
        
         switch indexPath.section {
                case 0:
-              
-                
-
                    return cellTow
                case 1:
-              
-
                    return cellThree
-            
                case 2:
-                     
-       
-                
                 if Constants.flag == true{
                   cell.didSelectRow = { data in
-             
             
-            let detailVC = self.storyboard?.instantiateViewController(withIdentifier:"teamVc") as! TeamDetailesViewController
+                    let detailVC = self.storyboard?.instantiateViewController(withIdentifier:"teamVc") as! TeamDetailesViewController
                        
                        detailVC.modalPresentationStyle = .fullScreen
                        self.present(detailVC, animated: true, completion:nil)
-            detailVC.setTeamDetailes(team: data)
-                    }}else{
+                       detailVC.setTeamDetailes(team: data)
+                    }
+                    
+                }else{
                     self.ShowAlert()
                 }
                      return cell
@@ -172,20 +157,7 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
             presenter.deleteFuncById(idLeague: league.idLeague ?? "")
           
             sender.setBackgroundImage( UIImage(systemName:"heart"), for: .normal, barMetrics: .default)
-           // let isThere = coreData.checkIfLeagueInFavById(id: league.idLeague ?? "" )
-            //if isThere == true {
-              //  let deletedleague =  coreData.getDeletedLeague(id: league.idLeague ?? "")
-                //coreData.delete(league: deletedleague)
-            //}else{
-              //  print("there is no leaguge by this id ")
-            //}
-            
         }
-        
-    
-           
-           
-        
         
     }
     
@@ -194,24 +166,6 @@ class EventsViewController: UIViewController ,UITableViewDataSource, UITableView
    @IBAction func backBtn(_ sender: Any) {
        dismiss(animated: true, completion: nil)
    }
-    
-   // var checked = false
-
-    //@IBAction func tick(sender: UIButton) {
-
-      //  if checked {
-       //     sender.setImage( UIImage(named:"Unchecked.png"), forState: .Normal)
-       //     checked = false
-      //  } else {
-      //      sender.setImage(UIImage(named:"Checked.png"), forState: .Normal)
-      //      checked = true
-      //  }
-   // }
-    
-    
-    
-    
-    
     /*
     // MARK: - Navigation
 

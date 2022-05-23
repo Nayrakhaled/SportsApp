@@ -27,6 +27,7 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout{
     override func viewDidLoad() {
         super.viewDidLoad()
         Constants.checkConnection()
+        
         layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right:0)
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.width / 4)
         layout.minimumInteritemSpacing = 0
@@ -42,8 +43,10 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout{
         presenter = HomePresenter(NWService: NetworkManager())
         
         presenter.attachView(view: self)
-     
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if Constants.flag == true{
             print("internet")
             indecator.startAnimating()
@@ -53,18 +56,14 @@ class ViewController: UIViewController, UICollectionViewDelegateFlowLayout{
             print("No internet")
         }
     }
-
-
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sport.count
      }
     
-       
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellHome", for: indexPath) as! HomeCollectionViewCell
         
@@ -85,10 +84,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let LeagueVC = storyboard?.instantiateViewController(withIdentifier: "league") as! LeaguesViewController
                
         LeagueVC.sportName = sport[indexPath.row].strSport
-    navigationController?.pushViewController(LeagueVC, animated: true)
-//        LeagueVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
-//
-//        present(LeagueVC, animated: true, completion:nil)
+        navigationController?.pushViewController(LeagueVC, animated: true)
     }
 }
 extension ViewController : HomeProtocol {
@@ -107,5 +103,4 @@ extension ViewController : HomeProtocol {
               alert.addAction(okBtn)
               self.present(alert, animated: true, completion: nil)
           }
-    
 }

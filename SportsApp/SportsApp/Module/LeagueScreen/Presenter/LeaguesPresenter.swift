@@ -8,12 +8,6 @@
 
 import Foundation
 
-
-protocol LeaguesPresenterProtocol{
-    func getLeagues(url: String, sportName: String)
-    func attachView(view: LeaguesProtocol)
-}
-
 class LeaguesPresenter: LeaguesPresenterProtocol {
     
     var NWService : NetworkManagerProtocol! // service

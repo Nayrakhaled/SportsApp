@@ -16,19 +16,10 @@ class ComingEventsCollectionViewCell: UICollectionViewCell,ComingoCellCollection
     func homeTeamName(name: String) {
         homeTeamName.text = name
     }
-    
-   
-    
+ 
     func eventImage(image: String) {
-        upcomingImage.kf.setImage(with: URL(string:image), placeholder: UIImage(named: "car.png"))
+        upcomingImage.kf.setImage(with: URL(string:image), placeholder: UIImage(named: "imageSport"))
     }
-    
-    
-    
-   
-    
-    
-    
 
     @IBOutlet var upcomingImage: UIImageView!
     
@@ -48,9 +39,4 @@ class ComingEventsCollectionViewCell: UICollectionViewCell,ComingoCellCollection
         super.awakeFromNib()
         // Initialization code
     }
-    
-   
-
-   
-
 }
